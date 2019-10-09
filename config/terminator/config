@@ -1,0 +1,104 @@
+[global_config]
+  always_split_with_profile = True
+  inactive_color_offset = 0.527777777778
+  title_font = Iosevka 9
+  title_transmit_bg_color = "#75507b"
+  title_use_system_font = False
+[keybindings]
+  layout_launcher = none
+[layouts]
+  [[default]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = f78a9926-5a00-418d-83d1-1dad5b437b84
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 1241:31
+      size = 1318, 1368
+      title = /bin/bash
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 995
+      ratio = 0.730007336757
+      type = VPaned
+    [[[child3]]]
+      order = 1
+      parent = child1
+      position = 657
+      ratio = 0.500380807312
+      type = HPaned
+    [[[terminal2]]]
+      order = 0
+      parent = child1
+      profile = default
+      type = Terminal
+      uuid = f78a9926-5a00-418d-83d1-1dad5b437b84
+    [[[terminal4]]]
+      order = 0
+      parent = child3
+      profile = default
+      type = Terminal
+      uuid = 0a11bcb0-e3c7-43c2-88ec-e8c489f1ae38
+    [[[terminal5]]]
+      order = 1
+      parent = child3
+      profile = default
+      type = Terminal
+      uuid = d5005f95-cc5e-454c-92dc-059a6b7f5ec5
+  [[3 Terminals]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = f78a9926-5a00-418d-83d1-1dad5b437b84
+      last_active_window = True
+      maximised = False
+      order = 0
+      parent = ""
+      position = 1241:31
+      size = 1318, 1368
+      title = /bin/bash
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 995
+      ratio = 0.730007336757
+      type = VPaned
+    [[[child3]]]
+      order = 1
+      parent = child1
+      position = 657
+      ratio = 0.500380807312
+      type = HPaned
+    [[[terminal2]]]
+      order = 0
+      parent = child1
+      profile = default
+      type = Terminal
+      uuid = f78a9926-5a00-418d-83d1-1dad5b437b84
+    [[[terminal4]]]
+      order = 0
+      parent = child3
+      profile = default
+      type = Terminal
+      uuid = 0a11bcb0-e3c7-43c2-88ec-e8c489f1ae38
+    [[[terminal5]]]
+      order = 1
+      parent = child3
+      profile = default
+      type = Terminal
+      uuid = d5005f95-cc5e-454c-92dc-059a6b7f5ec5
+[plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.49
+    cursor_blink = False
+    cursor_color = "#b1951d"
+    cursor_color_fg = False
+    font = Iosevka 11
+    scrollback_infinite = True
+    use_system_font = False
+    use_theme_colors = True
