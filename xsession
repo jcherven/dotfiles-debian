@@ -2,7 +2,7 @@
 
 xrdb -merge ~/.Xresources &
 xmodmap ~/.Xmodmap &
-#twm
+#vtwm
 fvwm
 #spectrwm
 #i3

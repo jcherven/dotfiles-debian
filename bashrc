@@ -20,9 +20,9 @@
   fi
 
   # Use Neovim if it's installed
-  #if ! [ -x "$command -v nvim)" ]; then
-  #  alias vim='nvim'
-  #fi
+  if ! [ -x "$command -v nvim)" ]; then
+    alias vim='nvim'
+  fi
 
 # Git-friendly command prompt
   source ~/.git-prompt.sh
