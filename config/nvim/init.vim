@@ -6,6 +6,7 @@ set encoding=utf-8
 set fileformats=unix,dos,mac
 set t_Co=256
 set lazyredraw
+set clipboard=unnamed
 set backspace=indent,eol,start
 set showtabline=2
 set noshowmode
