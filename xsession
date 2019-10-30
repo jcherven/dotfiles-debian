@@ -3,6 +3,7 @@
 xrdb -merge ~/.Xresources &
 xmodmap ~/.Xmodmap &
 #vtwm
-fvwm
+#fvwm
 #spectrwm
 #i3
+wmaker
