@@ -12,6 +12,7 @@ fi
 brew update
 
 brew tap caskroom/cask
+brew tap homebrew/cask-versions
 brew tap homebrew/cask-fonts
 
 brew upgrade --all
