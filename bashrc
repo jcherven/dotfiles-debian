@@ -6,17 +6,19 @@
     # mongodb things
     export MONGO_PATH=/usr/local/Cellar/mongodb/4.*/bin
     export PATH=$PATH:$MONGO_PATH/bin
+
     # sql things
     export PATH=/usr/local/mysql/bin:$PATH
-  # Set default editor to nvim
-  export EDITOR=nvim
+
+    # Set default editor to nvim
+    export EDITOR=nvim
 
 #Aliases
   # Always use colored ls output
   if [[ "$OSTYPE" == "linux-gnu"  ]]; then
-    alias ls='ls --color'
+    alias ls='ls -F -h --color=always -v'
   elif [[ "$OSTYPE" == "darwin"*  ]]; then
-    alias ls='ls -GFh'
+    alias ls='ls -G -F -h'
   fi
 
   # Use Neovim if it's installed
@@ -51,10 +53,12 @@ man() {
   [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 # enable vi mode at the prompt
-set -o vi
+# this should actually be set in .inputrc so that anything that uses the readline can benefit from it, not just bash. Commenting out.
+#set -o vi
 
 # Case insensitive bash completion
-set completion-ignore-case on
-set show-all-if-ambiguous on
+# these should also be set in .inputrc. Commenting out.
+#set completion-ignore-case on
+#set show-all-if-ambiguous on
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

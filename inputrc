@@ -1,1 +1,19 @@
+# vi editing mode at any readline
+set editing-mode vi
 
+set colored-stats on
+
+set completion-ignore-case on
+
+# sets every completion which is a symlink to a directory to have a trailing slash
+set mark-symlinked-directories on
+
+# disable the bell on tab completion if there are more than one available completions
+set show-all-if-ambiguous on
+
+# disable the bell on tab completion if there is more than one possible completion but no partial completion can be made
+set show-all-if-unmodified on
+
+# Incremental searching with Up and Down; Type ssh <up> to get the last 'ssh' command you used
+"\e[A": history-search-backward
+"\e[B": history-search-forward

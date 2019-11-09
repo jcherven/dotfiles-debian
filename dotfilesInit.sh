@@ -14,6 +14,7 @@ FILESLOCAL=(
   "$HOME/.git-prompt.sh"
   "$HOME/.bash_profile"
   "$HOME/.bashrc"
+  "$HOME/.inputrc"
   "$HOME/.gitconfig"
   "$HOME/.tmux.conf"
 )
@@ -23,6 +24,7 @@ FILESLINKED=(
   "$HOME/dotfiles-mac/git-prompt.sh"
   "$HOME/dotfiles-mac/bash_profile"
   "$HOME/dotfiles-mac/bashrc"
+  "$HOME/dotfiles-mac/inputrc"
   "$HOME/dotfiles-mac/gitconfig"
   "$HOME/dotfiles-mac/tmux.conf"
 )
