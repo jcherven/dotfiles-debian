@@ -80,8 +80,8 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
-# Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 1
+# Set a faster keyboard repeat rate
+defaults write NSGlobalDomain KeyRepeat -int 8
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 # Set language and text formats
