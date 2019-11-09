@@ -1,7 +1,8 @@
 # Environment variable exports
   # Path exports
     # homebrew things
-    export PATH=/usr/local/bin:$PATH
+    # Include homebrew stuff and gnu coreutils 
+    export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 
     # mongodb things
     export MONGO_PATH=/usr/local/Cellar/mongodb/4.*/bin
@@ -22,9 +23,11 @@
   fi
 
   # Use Neovim if it's installed
-  if ! [ -x "$command -v nvim)" ]; then
+  if ! [ -x "$(command -v nvim)" ]; then
     alias vim='nvim'
   fi
+
+  # Use the gnu utils installed in the homebrew bootstrap script instead of the BSD stock utils
 
 # Git-friendly command prompt
   source ~/.git-prompt.sh
