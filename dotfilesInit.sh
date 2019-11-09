@@ -62,9 +62,14 @@ done
 source "$HOME/dotfiles-mac/initscripts/viminit.sh"
 wait $!
 
+# Set preferred MacOS settings
+source "$HOME/dotfiles-mac/initscripts/macosinit.sh"
+wait $!
+
 popd
 
 echo "dotfileInit.sh has completed."
 echo "Manual steps left to complete:"
-echo "  Go set iTerm2 to read your custom preferences from the dotfiles version"
+echo "  - Go set iTerm2 to read your custom preferences from the dotfiles version"
+echo "  - Log out and back in to set MacOS system settings changes"
 
