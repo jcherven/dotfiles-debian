@@ -67,10 +67,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'yuttie/comfortable-motion.vim'
   Plug 'djoshea/vim-autoread'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'jsit/disco.vim'
 call plug#end()
 
-" Jummiterm colors from terminal
-" Neovim terminal colours
+" Jummiterm for the builtin terminal
 if has("nvim")
   let g:terminal_color_0 =  "#1f2022"
   let g:terminal_color_1 =  "#f2241f"
@@ -113,5 +113,16 @@ elseif has('terminal')
         \ "#2d9574",
         \ "#f8f8f8",
         \ ]
+endif
+
+function PlugLoaded(name)
+  return (
+        \ has_key(g:plugs, a:name) &&
+        \ isdirectory(g:plugs[a:name].dir) &&
+        \ stridx(&rtp, g:plugs[a:name].dir >= 0))
+endfunction
+
+if PlugLoaded('disco.vim')
+  colorscheme disco
 endif
 
