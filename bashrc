@@ -1,9 +1,8 @@
 # ~/dotfiles-mac/bashrc
-# Symlink this file from ~ or dump it in and rename to .bashrc
 
 # This version of the .bashrc is only tested on MacOS with the intention of working towards portability.
 
-# Right now .bashrc is for env variable exports, aliases and the prompt configuration.
+# Right now .bashrc is for env variable exports, aliases and the prompt configuration. You should find out if there are better opinions about what does and doesn't belong in here.
 
 # Environment variable exports
   # PATH exports
@@ -14,8 +13,8 @@
     export PATH="$(brew --prefix coreutils)/libexev/gnubin:$PATH"
 
     # mongodb
-    export MONGO_PATH=/usr/local/Cellar/mongodb/4.*/bin
-    export PATH=$PATH:$MONGO_PATH/bin
+    export MONGO_PATH="/usr/local/Cellar/mongodb/4.*/bin"
+    export PATH="$PATH:$MONGO_PATH/bin"
 
     # sql
     export PATH=/usr/local/mysql/bin:$PATH
@@ -58,9 +57,10 @@
   fi
 
   # Use Neovim if it's installed
-  if ! [ -x "$(command -v nvim)" ]; then
-    alias vim='nvim'
-  fi
+  # TODO: Trying to run without this as it's getting confusing with different vims installed. Just try learning to live with typing nvim out.
+  # if ! [ -x "$(command -v nvim)" ]; then
+  #   alias vim='nvim'
+  # fi
 
 # Decorated prompt with Git status
 # TODO: .git-prompt.sh is possibly badly outdated, think about looking into a newer one
@@ -77,6 +77,7 @@
   export PS1="$purple\u$green\$(__git_ps1)$blue \W $ $reset"
 
 # Highlighted man page output in linux and macos.
+# TODO: if GNU less is installed via Homebrew, this section might be handled better via an alias to gless with the correct options
 man() {
   env \
     LESS_TERMCAP_mb=$(printf "\e[1;31m") \
