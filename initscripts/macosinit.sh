@@ -80,8 +80,13 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
+# Disable special characters when holding keys
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
 # Set a faster keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 8
+# Normal minimum is 2 (30ms)
+defaults write NSGlobalDomain KeyRepeat -int 2
+#Normal minimum is 15 (225ms)
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 # Set language and text formats
@@ -105,7 +110,7 @@ sudo systemsetup -setrestartfreeze on
 ###############################################################################
 
 # Finder: show hidden files by default
-#defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -160,9 +165,6 @@ defaults write com.apple.dock minimize-to-application -bool true
 
 # Show indicator lights for open applications in the Dock
 defaults write com.apple.dock show-process-indicators -bool true
-
-# Show only open applications in the Dock
-defaults write com.apple.dock static-only -bool true
 
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
