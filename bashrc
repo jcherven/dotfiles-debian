@@ -64,18 +64,18 @@
   # fi
 
 # Decorated prompt with Git status
-# TODO: .git-prompt.sh is possibly badly outdated, think about looking into a newer one
+# TODO: .git-prompt.sh is almost 10 years old, think about looking into a newer one
   source ~/.git-prompt.sh
   export GIT_PS1_SHOWDIRTYSTATE=1
 
   # Git prompt color definitions
   # Grab terminal colors
-  green="\[\033[0;32m\]"
-  blue="\[\033[0;34m\]"
-  purple="\[\033[0;35m\]"
+  BLUE="\[\033[0;32m\]"
+  PURPLE="\[\033[0;33m\]"
+  PINK="\[\033[0;35m\]"
   # reset for normal colored command input
   reset="\[\033[0m\]"
-  export PS1="$purple\u$green\$(__git_ps1)$blue \W $ $reset"
+  export PS1="$PINK\u$BLUE\$(__git_ps1)$PURPLE \W $ $reset"
 
 # Highlighted man page output in linux and macos.
 # TODO: if GNU less is installed via Homebrew, this section might be handled better via an alias to gless with the correct options

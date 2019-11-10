@@ -71,49 +71,49 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " Jummiterm for the builtin terminal
-if has("nvim")
-  let g:terminal_color_0 =  "#1f2022"
-  let g:terminal_color_1 =  "#f2241f"
-  let g:terminal_color_2 =  "#67b11d"
-  let g:terminal_color_3 =  "#b1951d"
-  let g:terminal_color_4 =  "#4f97d7"
-  let g:terminal_color_5 =  "#a31db1"
-  let g:terminal_color_6 =  "#2d9574"
-  let g:terminal_color_7 =  "#a3a3a3"
-  let g:terminal_color_8 =  "#585858"
-  let g:terminal_color_9 =  "#f2241f"
-  let g:terminal_color_10 = "#67b11d"
-  let g:terminal_color_11 = "#b1951d"
-  let g:terminal_color_12 = "#4f97d7"
-  let g:terminal_color_13 = "#a31db1"
-  let g:terminal_color_14 = "#2d9574"
-  let g:terminal_color_15 = "#f8f8f8"
-  let g:terminal_color_background = g:terminal_color_0
-  let g:terminal_color_foreground = g:terminal_color_5
-  if &background == "light"
-    let g:terminal_color_background = g:terminal_color_7
-    let g:terminal_color_foreground = g:terminal_color_2
-  endif
-elseif has('terminal')
-  let g:terminal_ansi_colors = [
-        \ "#1f2022",
-        \ "#f2241f",
-        \ "#67b11d",
-        \ "#b1951d",
-        \ "#4f97d7",
-        \ "#a31db1",
-        \ "#2d9574",
-        \ "#a3a3a3",
-        \ "#585858",
-        \ "#f2241f",
-        \ "#67b11d",
-        \ "#b1951d",
-        \ "#4f97d7",
-        \ "#a31db1",
-        \ "#2d9574",
-        \ "#f8f8f8",
-        \ ]
-endif
+" if has("nvim")
+"   let g:terminal_color_0 =  "#1f2022"
+"   let g:terminal_color_1 =  "#f2241f"
+"   let g:terminal_color_2 =  "#67b11d"
+"   let g:terminal_color_3 =  "#b1951d"
+"   let g:terminal_color_4 =  "#4f97d7"
+"   let g:terminal_color_5 =  "#a31db1"
+"   let g:terminal_color_6 =  "#2d9574"
+"   let g:terminal_color_7 =  "#a3a3a3"
+"   let g:terminal_color_8 =  "#585858"
+"   let g:terminal_color_9 =  "#f2241f"
+"   let g:terminal_color_10 = "#67b11d"
+"   let g:terminal_color_11 = "#b1951d"
+"   let g:terminal_color_12 = "#4f97d7"
+"   let g:terminal_color_13 = "#a31db1"
+"   let g:terminal_color_14 = "#2d9574"
+"   let g:terminal_color_15 = "#f8f8f8"
+"   let g:terminal_color_background = g:terminal_color_0
+"   let g:terminal_color_foreground = g:terminal_color_5
+"   if &background == "light"
+"     let g:terminal_color_background = g:terminal_color_7
+"     let g:terminal_color_foreground = g:terminal_color_2
+"   endif
+" elseif has('terminal')
+"   let g:terminal_ansi_colors = [
+"         \ "#1f2022",
+"         \ "#f2241f",
+"         \ "#67b11d",
+"         \ "#b1951d",
+"         \ "#4f97d7",
+"         \ "#a31db1",
+"         \ "#2d9574",
+"         \ "#a3a3a3",
+"         \ "#585858",
+"         \ "#f2241f",
+"         \ "#67b11d",
+"         \ "#b1951d",
+"         \ "#4f97d7",
+"         \ "#a31db1",
+"         \ "#2d9574",
+"         \ "#f8f8f8",
+"         \ ]
+" endif
 
 function PlugLoaded(name)
   return (
