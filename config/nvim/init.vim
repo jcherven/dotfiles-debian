@@ -67,7 +67,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'yuttie/comfortable-motion.vim'
   Plug 'djoshea/vim-autoread'
   Plug 'jiangmiao/auto-pairs'
-  Plug '~/Desktop/vim-fromtermcolors'
+  Plug 'jcherven/vim-fromtermcolors'
 call plug#end()
 
 " Jummiterm for the builtin terminal

@@ -71,11 +71,11 @@
   # Git prompt color definitions
   # Grab terminal colors
   BLUE="\[\033[0;32m\]"
-  PURPLE="\[\033[0;33m\]"
+  PURPLE="\[\033[0;34m\]"
   PINK="\[\033[0;35m\]"
   # reset for normal colored command input
   reset="\[\033[0m\]"
-  export PS1="$PINK\u$BLUE\$(__git_ps1)$PURPLE \W $ $reset"
+  export PS1="$PINK\u$BLUE\$(__git_ps1)$PURPLE \W $reset $ "
 
 # Highlighted man page output in linux and macos.
 # TODO: if GNU less is installed via Homebrew, this section might be handled better via an alias to gless with the correct options
