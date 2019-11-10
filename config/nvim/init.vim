@@ -67,7 +67,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'yuttie/comfortable-motion.vim'
   Plug 'djoshea/vim-autoread'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'jsit/disco.vim'
+  Plug '~/Desktop/vim-fromtermcolors'
 call plug#end()
 
 " Jummiterm for the builtin terminal
@@ -122,7 +122,8 @@ function PlugLoaded(name)
         \ stridx(&rtp, g:plugs[a:name].dir >= 0))
 endfunction
 
-if PlugLoaded('disco.vim')
-  colorscheme disco
+if PlugLoaded('vim-fromtermcolors')
+  colorscheme fromtermcolors
+  set background=dark
 endif
 

@@ -8,6 +8,7 @@
   # PATH exports
     # Include Homebrew installed packages
     export PATH="/usr/local/bin:$PATH"
+    export PATH="/usr/local/sbin:$PATH"
 
     # GNU coreutils, if you decide to use them instead of the built in BSD utils
     export PATH="$(brew --prefix coreutils)/libexev/gnubin:$PATH"
