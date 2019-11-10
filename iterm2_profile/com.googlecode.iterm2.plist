@@ -839,7 +839,7 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>653 0 680 878 0 0 1440 878 </string>
+	<string>0 0 680 878 0 0 1440 878 </string>
 	<key>NeverWarnAboutMeta</key>
 	<true/>
 	<key>NeverWarnAboutMeta_selection</key>
@@ -880,13 +880,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.69803923368453979</real>
+				<real>0.1803921568627451</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.69803923368453979</real>
+				<real>0.16862745098039217</real>
 				<key>Red Component</key>
-				<real>0.69803923368453979</real>
+				<real>0.16078431372549021</real>
 			</dict>
 			<key>Ansi 1 Color</key>
 			<dict>
@@ -971,13 +971,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.69803923368453979</real>
+				<real>0.11372549019607843</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.69803923368453979</real>
+				<real>0.58431372549019611</real>
 				<key>Red Component</key>
-				<real>0.69803923368453979</real>
+				<real>0.69411764705882351</real>
 			</dict>
 			<key>Ansi 2 Color</key>
 			<dict>
@@ -1049,26 +1049,26 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.48627451062202454</real>
+				<real>0.69803921568627447</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.44705882668495178</real>
+				<real>0.69803921568627447</real>
 				<key>Red Component</key>
-				<real>0.40784314274787903</real>
+				<real>0.69803921568627447</real>
 			</dict>
 			<key>Ansi 8 Color</key>
 			<dict>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.48627451062202454</real>
+				<real>0.48627450980392156</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.44705882668495178</real>
+				<real>0.44705882352941179</real>
 				<key>Red Component</key>
-				<real>0.40784314274787903</real>
+				<real>0.40784313725490196</real>
 			</dict>
 			<key>Ansi 9 Color</key>
 			<dict>
@@ -2634,12 +2634,12 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1440, 900}}</string>
 		<key>topLeft</key>
-		<string>{512, 878}</string>
+		<string>{0, 684}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
 	<string>5D9B79D3-20D5-497B-893B-AED5F43FC6EC</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>28</integer>
+	<integer>29</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
