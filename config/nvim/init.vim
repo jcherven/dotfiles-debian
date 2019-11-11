@@ -75,8 +75,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'yuttie/comfortable-motion.vim'
   Plug 'djoshea/vim-autoread'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'jcherven/vim-fromtermcolors'
-  " Plug '~/Desktop/vim-fromtermcolors'
+  " Plugins which only work with nvim are called in here
+  if has('nvim')
+    Plug 'jcherven/vim-fromtermcolors'
+    " Plug '~/Desktop/vim-fromtermcolors'
+  endif
 call plug#end()
 
 function PlugLoaded(name)
