@@ -4,7 +4,7 @@ set nocompatible
 set directory^=$HOME/.vim/tmp//
 set encoding=utf-8
 set fileformats=unix,dos,mac
-set t_Co=256
+"set t_Co=256
 set lazyredraw
 set clipboard=unnamed
 set backspace=indent,eol,start
@@ -27,6 +27,12 @@ set magic
 set number
 set autochdir
 set cursorline
+  " Only show the cursorline in the active window
+  augroup CursorLineOnlyInActiveWindow
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+  augroup END
 set scrolloff=8
 set splitbelow
 set splitright
@@ -38,6 +44,8 @@ nnoremap <C-H> <C-w><C-H>
 nnoremap <space> :
 set mouse=a
 set signcolumn=no
+set background=dark
+
 
 call plug#begin('~/.vim/plugged')
   Plug 'christoomey/vim-tmux-navigator'
@@ -67,10 +75,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'yuttie/comfortable-motion.vim'
   Plug 'djoshea/vim-autoread'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'jcherven/vim-fromtermcolors'
+  " Plug 'jcherven/vim-fromtermcolors'
+  Plug '~/Desktop/vim-fromtermcolors'
 call plug#end()
 
-" Jummiterm for the builtin terminal
+" Jummiterm for the builtin terminal {{{
 " if has("nvim")
 "   let g:terminal_color_0 =  "#1f2022"
 "   let g:terminal_color_1 =  "#f2241f"
@@ -113,7 +122,7 @@ call plug#end()
 "         \ "#2d9574",
 "         \ "#f8f8f8",
 "         \ ]
-" endif
+" endif }}}
 
 function PlugLoaded(name)
   return (
@@ -124,6 +133,6 @@ endfunction
 
 if PlugLoaded('vim-fromtermcolors')
   colorscheme fromtermcolors
-  set background=dark
 endif
 
+" ex: set noexpandtab nolist foldmethod=marker:

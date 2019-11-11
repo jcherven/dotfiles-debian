@@ -7,24 +7,32 @@
 # Environment variable exports
   # PATH exports
     # Include Homebrew installed packages
-    export PATH="/usr/local/bin:$PATH"
-    export PATH="/usr/local/sbin:$PATH"
+      export PATH="/usr/local/bin:$PATH"
+      export PATH="/usr/local/sbin:$PATH"
 
     # GNU coreutils, if you decide to use them instead of the built in BSD utils
-    export PATH="$(brew --prefix coreutils)/libexev/gnubin:$PATH"
+      export PATH="$(brew --prefix coreutils)/libexev/gnubin:$PATH"
 
-    # mongodb
-    export MONGO_PATH="/usr/local/Cellar/mongodb/4.*/bin"
-    export PATH="$PATH:$MONGO_PATH/bin"
-
-    # sql
-    export PATH=/usr/local/mysql/bin:$PATH
+    # nvm
+      export NVM_DIR="$HOME/.nvm"
+      # This loads nvm
+      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+      # This loads nvm bash_completion
+      [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
     # yarn
-    export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+      export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+    # mongodb
+      export MONGO_PATH="/usr/local/Cellar/mongodb/4.*/bin"
+      export PATH="$PATH:$MONGO_PATH/bin"
+
+    # sql
+      export PATH=/usr/local/mysql/bin:$PATH
   # end PATH exports
 
-  export EDITOR=nvim
+  # Default editor
+    export EDITOR=nvim
 
 #Aliases
   # Improved ls functionality; handling for GNU ls and BSD ls
@@ -93,4 +101,5 @@ man() {
 
 # Tab completion via Homebrew package
   [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+
 
