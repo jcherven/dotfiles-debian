@@ -4,8 +4,8 @@ set -e
 pushd "$HOME"
 
 # Install homebrew and basic environment bootstrap apps
-source "$HOME/dotfiles-mac/initscripts/homebrewinit.sh"
-wait $!
+#source "$HOME/dotfiles-mac/initscripts/homebrewinit.sh"
+#wait $!
 
 # Symlinks for files that are located in ~/
 # the arrays FILESLOCAL and FILESLINKED correspond by index order
@@ -51,6 +51,10 @@ done
 
 # ~/.config directory symlinks
 for ((j=0; j<${#DIRSLOCAL[@]}; ++j)); do
+  if [ ! -d "${DIRSLOCAL[$j]}" ]
+  then
+    mkdir "${DIRSLOCAL[$j]}"
+  fi
   if [ -d "${DIRSLOCAL[$j]}" ]
   then
     mv "${DIRSLOCAL[$j]}" "${DIRSLOCAL[$j]}.old"
@@ -63,13 +67,13 @@ source "$HOME/dotfiles-mac/initscripts/viminit.sh"
 wait $!
 
 # Set preferred MacOS settings
-source "$HOME/dotfiles-mac/initscripts/macosinit.sh"
-wait $!
+#source "$HOME/dotfiles-mac/initscripts/macosinit.sh"
+#wait $!
 
 popd
 
 echo "dotfileInit.sh has completed."
-echo "Manual steps left to complete:"
-echo "  - Go set iTerm2 to read your custom preferences from the dotfiles version"
-echo "  - Log out and back in to set MacOS system settings changes"
+#echo "Manual steps left to complete:"
+#echo "  - Go set iTerm2 to read your custom preferences from the dotfiles version"
+#echo "  - Log out and back in to set MacOS system settings changes"
 

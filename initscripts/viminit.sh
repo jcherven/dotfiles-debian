@@ -8,6 +8,10 @@ curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs "https://raw.githubuserco
 ln -s "$HOME/dotfiles-mac/config/nvim/init.vim" "$HOME/.config/nvim/init.vim"
 ln -s "$HOME/dotfiles-mac/config/nvim/init.vim" "$HOME/.vimrc"
 
-nvim --headless +PlugInstall +qa
+if [ "$(command -v nvim)" ]
+then
+  nvim --headless +PlugInstall +qa
+fi
+
 vim -c 'PlugInstall | qa'
 

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # ~/dotfiles-mac/bashrc
 
 # This version of the .bashrc is only tested on MacOS with the intention of working towards portability.
@@ -10,29 +12,36 @@
       export PATH="/usr/local/bin:$PATH"
       export PATH="/usr/local/sbin:$PATH"
 
-    # GNU coreutils, if you decide to use them instead of the built in BSD utils
+    # Export these to PATH only on MacOS
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+      # GNU coreutils, if you decide to use them instead of the built in BSD utils
       export PATH="$(brew --prefix coreutils)/libexev/gnubin:$PATH"
+      # nvm
+        export NVM_DIR="$HOME/.nvm"
+        # This loads nvm
+        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        # This loads nvm bash_completion
+        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-    # nvm
-      export NVM_DIR="$HOME/.nvm"
-      # This loads nvm
-      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-      # This loads nvm bash_completion
-      [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+      # yarn
+        export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-    # yarn
-      export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+      # mongodb
+        export MONGO_PATH="/usr/local/Cellar/mongodb/4.*/bin"
+        export PATH="$PATH:$MONGO_PATH/bin"
 
-    # mongodb
-      export MONGO_PATH="/usr/local/Cellar/mongodb/4.*/bin"
-      export PATH="$PATH:$MONGO_PATH/bin"
-
-    # sql
-      export PATH=/usr/local/mysql/bin:$PATH
+      # sql
+        export PATH=/usr/local/mysql/bin:$PATH
+    fi
   # end PATH exports
 
-  # Default editor
+  # Set nvim/vim as the default editor if either are installed
+  if [ -x "$(command -v nvim)" ]; then
     export EDITOR=nvim
+  elif [ -x "$(command -v vim)" ]; then
+    export EDITOR=vim
+  fi
+
 
 #Aliases
   # Improved ls functionality; handling for GNU ls and BSD ls
@@ -49,20 +58,22 @@
   fi
 
   # Use the GNU utils installed in the homebrew bootstrap script instead of the BSD stock utils
-  if ! [ -x "$(command -v gfind)" ]; then
-    alias find='gfind'
-  fi
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    if ! [ -x "$(command -v gfind)" ]; then
+      alias find='gfind'
+    fi
 
-  if ! [ -x "$(command -v ggrep)" ]; then
-    alias grep='ggrep'
-  fi
+    if ! [ -x "$(command -v ggrep)" ]; then
+      alias grep='ggrep'
+    fi
 
-  if ! [ -x "$(command -v gtar)" ]; then
-    alias tar='gtar'
-  fi
+    if ! [ -x "$(command -v gtar)" ]; then
+      alias tar='gtar'
+    fi
 
-  if ! [ -x "$(command -v gwhich)" ]; then
-    alias which='gwhich'
+    if ! [ -x "$(command -v gwhich)" ]; then
+      alias which='gwhich'
+    fi
   fi
 
   # Use Neovim if it's installed
@@ -73,7 +84,7 @@
 
 # Decorated prompt with Git status
 # TODO: .git-prompt.sh is almost 10 years old, think about looking into a newer one
-  source ~/.git-prompt.sh
+  source "$HOME/.git-prompt.sh"
   export GIT_PS1_SHOWDIRTYSTATE=1
 
   # Git prompt color definitions
