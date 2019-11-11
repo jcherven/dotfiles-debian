@@ -15,7 +15,6 @@ FILESLOCAL=(
   "$HOME/.bash_profile"
   "$HOME/.bashrc"
   "$HOME/.inputrc"
-  "$HOME/.gitconfig"
   "$HOME/.tmux.conf"
 )
 
@@ -25,7 +24,6 @@ FILESLINKED=(
   "$HOME/dotfiles-mac/bash_profile"
   "$HOME/dotfiles-mac/bashrc"
   "$HOME/dotfiles-mac/inputrc"
-  "$HOME/dotfiles-mac/gitconfig"
   "$HOME/dotfiles-mac/tmux.conf"
 )
 
@@ -33,10 +31,12 @@ FILESLINKED=(
 # the arrays DIRSLOCAL and DIRSLINKED correspond by index order
 DIRSLOCAL=(
   "$HOME/.config/ranger"
+  "$HOME/.config/git"
 )
 
 DIRSLINKED=(
   "$HOME/dotfiles-mac/config/ranger"
+  "$HOME/dotfiles-mac/config/git"
 )
 
 # ~/ dot file symlinks

@@ -634,9 +634,9 @@
 	<key>Default Bookmark Guid</key>
 	<string>07EA3635-776A-4124-BD0D-3EB57DEA8BF5</string>
 	<key>DimBackgroundWindows</key>
-	<false/>
+	<true/>
 	<key>DimInactiveSplitPanes</key>
-	<false/>
+	<true/>
 	<key>DimOnlyText</key>
 	<true/>
 	<key>DisableFullscreenTransparency</key>
@@ -3519,12 +3519,12 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1440, 900}}</string>
 		<key>topLeft</key>
-		<string>{0, 684}</string>
+		<string>{77, 581}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
 	<string>5D9B79D3-20D5-497B-893B-AED5F43FC6EC</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>33</integer>
+	<integer>34</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -4353,9 +4353,9 @@
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>TerminalMargin</key>
-	<integer>25</integer>
+	<integer>16</integer>
 	<key>TerminalVMargin</key>
-	<integer>25</integer>
+	<integer>16</integer>
 	<key>ToolbeltTools</key>
 	<array>
 		<string>Recent Directories</string>
