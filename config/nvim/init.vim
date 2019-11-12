@@ -91,6 +91,8 @@ endfunction
 
 if PlugLoaded('vim-fromtermcolors')
   colorscheme fromtermcolors
+else
+  colorscheme default
 endif
 
 " ex: set noexpandtab nolist foldmethod=marker:

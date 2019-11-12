@@ -4,7 +4,7 @@ set -e
 pushd "$HOME"
 
 # Install the OS's basic environment bootstrap apps (currently supports MacOS and Debian)
-source "$HOME/dotfiles-mac/initscripts/swbootstrap.sh"
+source "$HOME/dotfiles/initscripts/swbootstrap.sh"
 
 # Symlinks for files that are located in ~/
 # the arrays FILESLOCAL and FILESLINKED correspond by index order
@@ -15,15 +15,19 @@ FILESLOCAL=(
   "$HOME/.bashrc"
   "$HOME/.inputrc"
   "$HOME/.tmux.conf"
+  "$HOME/.config/ranger/rc.conf"
+  "$HOME/.config/ranger/rifle.conf"
 )
 
 FILESLINKED=(
-  "$HOME/dotfiles-mac/Xresources"
-  "$HOME/dotfiles-mac/git-prompt.sh"
-  "$HOME/dotfiles-mac/bash_profile"
-  "$HOME/dotfiles-mac/bashrc"
-  "$HOME/dotfiles-mac/inputrc"
-  "$HOME/dotfiles-mac/tmux.conf"
+  "$HOME/dotfiles/Xresources"
+  "$HOME/dotfiles/git-prompt.sh"
+  "$HOME/dotfiles/bash_profile"
+  "$HOME/dotfiles/bashrc"
+  "$HOME/dotfiles/inputrc"
+  "$HOME/dotfiles/tmux.conf"
+  "$HOME/dotfiles/config/ranger/rc.conf"
+  "$HOME/dotfiles/config/ranger/rifle.conf"
 )
 
 # Symlinks for directories that are located ~/
@@ -34,8 +38,8 @@ DIRSLOCAL=(
 )
 
 DIRSLINKED=(
-  "$HOME/dotfiles-mac/config/ranger"
-  "$HOME/dotfiles-mac/config/git"
+  "$HOME/dotfiles/config/ranger"
+  "$HOME/dotfiles/config/git"
 )
 
 # ~/ dot file symlinks
@@ -62,11 +66,11 @@ for ((j=0; j<${#DIRSLOCAL[@]}; ++j)); do
 done
 
 # Install vim-plug and bootstrap the vim/neovim environment
-source "$HOME/dotfiles-mac/initscripts/viminit.sh"
+source "$HOME/dotfiles/initscripts/viminit.sh"
 
 # Set preferred MacOS settings
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  source "$HOME/dotfiles-mac/initscripts/macosinit.sh"
+  source "$HOME/dotfiles/initscripts/macosinit.sh"
 fi
 
 popd
