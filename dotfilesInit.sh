@@ -3,9 +3,8 @@
 set -e
 pushd "$HOME"
 
-# Install homebrew and basic environment bootstrap apps
-#source "$HOME/dotfiles-mac/initscripts/homebrewinit.sh"
-#wait $!
+# Install the OS's basic environment bootstrap apps (currently supports MacOS and Debian)
+source "$HOME/dotfiles-mac/initscripts/swbootstrap.sh"
 
 # Symlinks for files that are located in ~/
 # the arrays FILESLOCAL and FILESLINKED correspond by index order
@@ -27,7 +26,7 @@ FILESLINKED=(
   "$HOME/dotfiles-mac/tmux.conf"
 )
 
-# Symlinks for directories that are located anywhere
+# Symlinks for directories that are located ~/
 # the arrays DIRSLOCAL and DIRSLINKED correspond by index order
 DIRSLOCAL=(
   "$HOME/.config/ranger"
@@ -40,7 +39,7 @@ DIRSLINKED=(
 )
 
 # ~/ dot file symlinks
-# requires a c-style loop to access array index numbers
+# requires a c-style loops to access array index numbers
 for ((i=0; i<${#FILESLOCAL[@]}; ++i)); do
   if [ -f "${FILESLOCAL[$i]}" ];
   then
@@ -64,11 +63,11 @@ done
 
 # Install vim-plug and bootstrap the vim/neovim environment
 source "$HOME/dotfiles-mac/initscripts/viminit.sh"
-wait $!
 
 # Set preferred MacOS settings
-#source "$HOME/dotfiles-mac/initscripts/macosinit.sh"
-#wait $!
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  source "$HOME/dotfiles-mac/initscripts/macosinit.sh"
+fi
 
 popd
 
