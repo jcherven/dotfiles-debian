@@ -33,12 +33,10 @@ FILESLINKED=(
 # Symlinks for directories that are located ~/
 # the arrays DIRSLOCAL and DIRSLINKED correspond by index order
 DIRSLOCAL=(
-  "$HOME/.config/ranger"
   "$HOME/.config/git"
 )
 
 DIRSLINKED=(
-  "$HOME/dotfiles/config/ranger"
   "$HOME/dotfiles/config/git"
 )
 
