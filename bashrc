@@ -37,6 +37,9 @@
     fi
   # end PATH exports
 
+  # Improved less functionality
+  export LESS='--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --no-init --window=-8'
+
   # Set nvim/vim as the default editor if either are installed
   if [ -x "$(command -v nvim)" ]; then
     export EDITOR=nvim
@@ -44,8 +47,18 @@
     export EDITOR=vim
   fi
 
+  # PS1 export
+  # Git prompt script needs to be manually updated every so often from https://github.com/git/git/tree/contrib/completion
+    source "$HOME/.git-prompt.sh"
+    export GIT_PS1_SHOWDIRTYSTATE=1
+    BLUE="\[\033[0;32m\]"
+    PURPLE="\[\033[0;33m\]"
+    PINK="\[\033[0;35m\]"
+    reset="\[\033[0m\]"
+    export PS1="$PINK\u$BLUE\$(__git_ps1)$PURPLE \W$reset \$ "
+# end env exports
 
-#Aliases
+# Aliases
   # Improved ls functionality
   # For linux
   if [[ "$OSTYPE" == "linux-gnu"  ]]; then
@@ -60,6 +73,7 @@
       alias ls='ls -G -F -h'
     fi
   fi
+
 
   # MacOS Only: Use the GNU utils installed in the homebrew bootstrap script instead of the BSD stock utils
   if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -76,21 +90,7 @@
       alias which='gwhich'
     fi
   fi
-
-# Decorated prompt with Git status
-# Script needs to be manually updated every so often from:
-# https://github.com/git/git/tree/contrib/completion
-  source "$HOME/.git-prompt.sh"
-  export GIT_PS1_SHOWDIRTYSTATE=1
-
-  # Git prompt color definitions
-  # Grab terminal colors
-  BLUE="\[\033[0;32m\]"
-  PURPLE="\[\033[0;33m\]"
-  PINK="\[\033[0;35m\]"
-  # reset for normal colored command input
-  reset="\[\033[0m\]"
-  export PS1="$PINK\u$BLUE\$(__git_ps1)$PURPLE \W$reset \$ "
+# end Aliases
 
 # Highlighted man page output in linux and macos.
 # TODO: if GNU less is installed via Homebrew, this section might be handled better via an alias to gless with the correct options

@@ -4,7 +4,7 @@ set -e
 pushd "$HOME"
 
 # Install the OS's basic environment bootstrap apps (currently supports MacOS and Debian)
-source "$HOME/dotfiles/initscripts/swbootstrap.sh"
+#source "$HOME/dotfiles/initscripts/swbootstrap.sh"
 
 # Symlinks for files that are located in ~/
 # the arrays FILESLOCAL and FILESLINKED correspond by index order
@@ -67,9 +67,9 @@ done
 source "$HOME/dotfiles/initscripts/viminit.sh"
 
 # Set preferred MacOS settings
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  source "$HOME/dotfiles/initscripts/macosinit.sh"
-fi
+# if [[ "$OSTYPE" == "darwin"* ]]; then
+#   source "$HOME/dotfiles/initscripts/macosinit.sh"
+# fi
 
 popd
 
