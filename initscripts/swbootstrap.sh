@@ -115,4 +115,4 @@ elif [[ "$OSTYPE" == "linux-gnu" ]]; then
   apt_bootstrap
 fi
 
-# ex: set noexpandtab nolist foldmethod=marker:
+# ex: set foldmethod=marker:
