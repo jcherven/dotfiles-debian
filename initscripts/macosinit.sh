@@ -33,18 +33,11 @@ sudo nvram SystemAudioVolume=" "
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
-# Expand print panel by default
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
-
-# Automatically quit printer app once the print jobs complete
-defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
-
 # Disable the “Are you sure you want to open this application?” dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
 # Disable Resume system-wide
-defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
+defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows
 
 # Disable the crash reporter
 defaults write com.apple.CrashReporter DialogType -string "none"
@@ -69,7 +62,7 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 ###############################################################################
-# Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
+# Trackpad, mouse, keyboard, input                 #
 ###############################################################################
 
 # Trackpad: enable tap to click for this user and for the login screen
@@ -77,17 +70,14 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
-# Increase sound quality for Bluetooth headphones/headsets
-defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
-
 # Disable special characters when holding keys
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
-# Set a faster keyboard repeat rate
+# Tune the keyboard repeat rate
 # Normal minimum is 2 (30ms)
 defaults write NSGlobalDomain KeyRepeat -int 2
-#Normal minimum is 15 (225ms)
-defaults write NSGlobalDomain InitialKeyRepeat -int 10
+# Normal minimum is 15 (225ms)
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 # Set language and text formats
 defaults write NSGlobalDomain AppleLanguages -array "en" "ja" "ko"
@@ -152,6 +142,9 @@ chflags nohidden ~/Library
 
 # Show the /Volumes folder
 sudo chflags nohidden /Volumes
+
+# Set the default Finder location to the home folder
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
