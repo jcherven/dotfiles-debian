@@ -47,19 +47,55 @@
     export EDITOR=vim
   fi
 
-  # PS1 export
+  # Prompt configuration
   # Git prompt script needs to be manually updated every so often from https://github.com/git/git/tree/contrib/completion
     source "$HOME/dotfiles/git-prompt.sh"
     export GIT_PS1_SHOWDIRTYSTATE=1
-    BLUE="\[\033[0;32m\]"
-    PURPLE="\[\033[0;33m\]"
-    PINK="\[\033[0;35m\]"
-    reset="\[\033[0m\]"
-    export PS1="$PINK\u$BLUE\$(__git_ps1)$PURPLE \W$reset \$ "
+    NORMALBLACK="\[\033[0;30m\]"
+    NORMALRED="\[\033[0;31m\]"
+    NORMALGREEN="\[\033[0;32m\]"
+    NORMALYELLOW="\[\033[0;33m\]"
+    NORMALBLUE="\[\033[0;34m\]"
+    NORMALMAGENTA="\[\033[0;35m\]"
+    NORMALCYAN="\[\033[0;36m\]"
+    NORMALWHITE="\[\033[0;37m\]"
+
+    BRIGHTBLACK="\[\033[1;30m\]"
+    BRIGHTRED="\[\033[1;31m\]"
+    BRIGHTGREEN="\[\033[1;32m\]"
+    BRIGHTYELLOW="\[\033[1;33m\]"
+    BRIGHTBLUE="\[\033[1;34m\]"
+    BRIGHTMAGENTA="\[\033[1;35m\]"
+    BRIGHTCYAN="\[\033[1;36m\]"
+    BRIGHTWHITE="\[\033[1;37m\]"
+
+    RESETCOLOR="\[\033[0m\]"
+    export PS1="$BRIGHTBLUE\u $NORMALGREEN\W$BRIGHTRED\$(__git_ps1)$RESETCOLOR \$ "
 # end env exports
 
 # Aliases
+
+  # MacOS Only: Use the GNU utils installed in the homebrew bootstrap script instead of the BSD stock utils
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    if [ -x "$(command -v gfind)" ]; then
+      alias find='gfind'
+    fi
+    if [ -x "$(command -v ggrep)" ]; then
+      alias grep='ggrep'
+    fi
+    if [ -x "$(command -v gtar)" ]; then
+      alias tar='gtar'
+    fi
+    if [ -x "$(command -v gwhich)" ]; then
+      alias which='gwhich'
+    fi
+    if [ -x "$(command -v gdircolors)" ]; then
+      alias dircolors='gdircolors'
+    fi
+  fi
+
   # Improved ls functionality
+  eval "$(dircolors)"
   # For linux
   if [[ "$OSTYPE" == "linux-gnu"  ]]; then
     alias ls='ls -F -h --color=always -v'
@@ -74,26 +110,11 @@
     fi
   fi
 
-
-  # MacOS Only: Use the GNU utils installed in the homebrew bootstrap script instead of the BSD stock utils
-  if [[ "$OSTYPE" == "darwin"* ]]; then
-    if ! [ -x "$(command -v gfind)" ]; then
-      alias find='gfind'
-    fi
-    if ! [ -x "$(command -v ggrep)" ]; then
-      alias grep='ggrep'
-    fi
-    if ! [ -x "$(command -v gtar)" ]; then
-      alias tar='gtar'
-    fi
-    if ! [ -x "$(command -v gwhich)" ]; then
-      alias which='gwhich'
-    fi
-  fi
 # end Aliases
 
 # Highlighted man page output in linux and macos.
 # TODO: if GNU less is installed via Homebrew, this section might be handled better via an alias to gless with the correct options
+eval "$(dircolors)"
 man() {
   env \
     LESS_TERMCAP_mb=$(printf "\e[1;31m") \
