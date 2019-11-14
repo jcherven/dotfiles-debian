@@ -49,7 +49,7 @@
 
   # PS1 export
   # Git prompt script needs to be manually updated every so often from https://github.com/git/git/tree/contrib/completion
-    source "$HOME/.git-prompt.sh"
+    source "$HOME/dotfiles/git-prompt.sh"
     export GIT_PS1_SHOWDIRTYSTATE=1
     BLUE="\[\033[0;32m\]"
     PURPLE="\[\033[0;33m\]"
@@ -106,3 +106,5 @@ man() {
     man $@
 }
 
+# Git completion for branch names, subcommands, and more
+source "$HOME/dotfiles/git-completion.bash"

@@ -10,10 +10,10 @@ source "$HOME/dotfiles/initscripts/swbootstrap.sh"
 # the arrays FILESLOCAL and FILESLINKED correspond by index order
 FILESLOCAL=(
   "$HOME/.Xresources"
-  "$HOME/.git-prompt.sh"
   "$HOME/.bash_profile"
   "$HOME/.bashrc"
   "$HOME/.inputrc"
+  "$HOME/.zshrc"
   "$HOME/.tmux.conf"
   "$HOME/.config/ranger/rc.conf"
   "$HOME/.config/ranger/rifle.conf"
@@ -21,10 +21,10 @@ FILESLOCAL=(
 
 FILESLINKED=(
   "$HOME/dotfiles/Xresources"
-  "$HOME/dotfiles/git-prompt.sh"
   "$HOME/dotfiles/bash_profile"
   "$HOME/dotfiles/bashrc"
   "$HOME/dotfiles/inputrc"
+  "$HOME/dotfiles/zshrc"
   "$HOME/dotfiles/tmux.conf"
   "$HOME/dotfiles/config/ranger/rc.conf"
   "$HOME/dotfiles/config/ranger/rifle.conf"
