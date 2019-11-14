@@ -45,7 +45,6 @@ nnoremap <space> :
 set mouse=a
 set signcolumn=no
 "set background=dark
-set syntax enable
 
 call plug#begin('~/.vim/plugged')
   Plug 'christoomey/vim-tmux-navigator'

@@ -5,7 +5,7 @@ set -e
 function homebrew_bootstrap {
   echo "Bootstrapping jcherven's basic terminal environment via Homebrew"
 
-  if [ -x "$(command -v brew)" ]; then
+  if [ ! -x "$(command -v brew)" ]; then
       echo "Installing homebrew..."
       ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
@@ -86,11 +86,23 @@ function homebrew_bootstrap {
   echo "Environment bootstrap via Homebrew has finished."
 }
 
+function macos_tools_bootstrap {
+  # nvm/nodejs
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
+  # npm globals
+  npm install --global prettier lite-server nodemon
+  # heroku cli
+  brew tap heroku/brew
+  brew install heroku
+  heroku autocomplete
+
+}
+
 function apt_bootstrap {
   echo "Bootstrapping jcherven's basic terminal environment via apt"
   # Ask for the administrator password upfront
   sudo -v
-  # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+  # Keep-alive: update existing `sudo` time stamp until script has finished
   while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
   # apt update and install commands go here
@@ -107,6 +119,15 @@ function apt_bootstrap {
   sudo apt install -y lynx
 
   echo "Environment bootstrap via apt has finished."
+}
+
+function linux_tools_bootstrap {
+  # nvm/nodejs
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
+  # npm globals
+  npm install --global prettier lite-server nodemon
+  # heroku cli
+  sudo curl https://cli-assets.heroku.com/install.sh | sh
 }
 
 if [[ "$OSTYPE" == "darwin"* ]]; then

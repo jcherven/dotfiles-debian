@@ -32,6 +32,11 @@
 
       # sql
         export PATH=/usr/local/mysql/bin:$PATH
+
+      # heroku cli
+        if [ -x "$(command -v heroku)" ]; then
+          heroku autocomplete:script bash
+        fi
     fi
   # end PATH exports
 
