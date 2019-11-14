@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # ~/dotfiles-mac/bashrc
 
 # This version of the .bashrc is only tested on MacOS with the intention of working towards portability. Some minimal work has been done to work with Debian and other Linuxes.
@@ -38,6 +36,7 @@
   # end PATH exports
 
   # Improved less functionality
+  # https://www.topbug.net/blog/2016/09/27/make-gnu-less-more-powerful/
   export LESS='--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --no-init --window=-8'
 
   # Set nvim/vim as the default editor if either are installed
@@ -95,6 +94,7 @@
   fi
 
   # Improved ls functionality
+  # https://www.topbug.net/blog/2016/11/28/a-better-ls-command/
   eval "$(dircolors)"
   # For linux
   if [[ "$OSTYPE" == "linux-gnu"  ]]; then
