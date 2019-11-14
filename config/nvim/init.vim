@@ -46,13 +46,35 @@ set mouse=a
 set signcolumn=no
 set background=dark
 
-
 call plug#begin('~/.vim/plugged')
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'jeffKreeftmeijer/vim-numbertoggle'
   Plug 'mkitt/tabline.vim'
   Plug 'tpope/vim-fugitive'
-  Plug 'scrooloose/nerdtree'
+  Plug 'dense-analysis/ale' "{{{
+    let g:ale_linters_explicit=1
+    let g:ale_linters={
+          \ 'vim': ['prettier'],
+          \ 'javascript': ['prettier'],
+          \ 'css': ['prettier'],
+          \ 'sass': ['prettier'],
+          \ 'html': ['prettier'],
+          \ 'json': ['prettier'],
+          \ 'markdown': ['prettier']
+    \}
+    let g:ale_fixers={
+	  \ 'vim': ['prettier'],
+          \ 'javascript': ['prettier'],
+          \ 'css': ['prettier'],
+          \ 'sass': ['prettier'],
+          \ 'html': ['prettier'],
+          \ 'json': ['prettier'],
+          \ 'markdown': ['prettier']
+    \}
+    let g:ale_fix_on_save=1
+    let g:ale_javascript_prettier_options='--single-quote true --no-bracket-spacing false --no-semi false'
+    "}}}
+  Plug 'scrooloose/nerdtree' "{{{
     autocmd StdinReadPre * let s:std_in=1
     autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
     map <C-n> :NERDTreeToggle<CR>
@@ -66,6 +88,7 @@ call plug#begin('~/.vim/plugged')
     let g:NERDTreeMapActivateNode = "l"
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'mortonfox/nerdtree-clip'
+  "}}}
   Plug 'sickill/vim-pasta'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
