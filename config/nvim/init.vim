@@ -44,7 +44,8 @@ nnoremap <C-H> <C-w><C-H>
 nnoremap <space> :
 set mouse=a
 set signcolumn=no
-set background=dark
+"set background=dark
+set syntax enable
 
 call plug#begin('~/.vim/plugged')
   Plug 'christoomey/vim-tmux-navigator'
@@ -52,7 +53,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'mkitt/tabline.vim'
   Plug 'tpope/vim-fugitive'
   Plug 'dense-analysis/ale' "{{{
+    let g:ale_fix_on_save=1
     let g:ale_linters_explicit=1
+    let g:ale_javascript_prettier_options='--single-quote'
     let g:ale_linters={
           \ 'vim': ['prettier'],
           \ 'javascript': ['prettier'],
@@ -71,8 +74,6 @@ call plug#begin('~/.vim/plugged')
           \ 'json': ['prettier'],
           \ 'markdown': ['prettier']
     \}
-    let g:ale_fix_on_save=1
-    let g:ale_javascript_prettier_options='--single-quote true --no-bracket-spacing false --no-semi false'
     "}}}
   Plug 'scrooloose/nerdtree' "{{{
     autocmd StdinReadPre * let s:std_in=1
@@ -98,6 +99,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'yuttie/comfortable-motion.vim'
   Plug 'djoshea/vim-autoread'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'sheerun/vim-polyglot'
   " Plugins which only work with nvim are called in here
   if has('nvim')
     Plug 'jcherven/vim-fromtermcolors'
