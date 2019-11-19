@@ -1,9 +1,5 @@
 # ~/dotfiles-mac/bashrc
 
-# This version of the .bashrc is only tested on MacOS with the intention of working towards portability. Some minimal work has been done to work with Debian and other Linuxes.
-
-# Right now .bashrc is for env variable exports, aliases and the prompt configuration. You should find out if there are better opinions about what does and doesn't belong in here.
-
 # Environment variable exports
   # PATH exports
     # Export these to PATH only on MacOS
@@ -34,7 +30,7 @@
         export PATH=/usr/local/mysql/bin:$PATH
 
       # heroku cli
-        if [ -x "$(command -v heroku)" ]; then
+        if [ ! -x "$(command -v heroku)" ]; then
           heroku autocomplete:script bash
         fi
     fi

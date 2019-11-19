@@ -17,6 +17,10 @@ FILESLOCAL=(
   "$HOME/.tmux.conf"
   "$HOME/.config/ranger/rc.conf"
   "$HOME/.config/ranger/rifle.conf"
+  "$HOME/.config/git/config"
+  "$HOME/.config/git/ignore"
+  "$HOME/.config/git/git-completion.bash"
+  "$HOME/.config/git/git-prompt.sh"
 )
 
 FILESLINKED=(
@@ -28,20 +32,24 @@ FILESLINKED=(
   "$HOME/dotfiles/tmux.conf"
   "$HOME/dotfiles/config/ranger/rc.conf"
   "$HOME/dotfiles/config/ranger/rifle.conf"
+  "$HOME/dotfiles/config/git/config"
+  "$HOME/dotfiles/config/git/ignore"
+  "$HOME/dotfiles/config/git/git-completion.bash"
+  "$HOME/dotfiles/config/git/git-prompt.sh"
 )
 
 # Symlinks for directories that are located ~/
 # the arrays DIRSLOCAL and DIRSLINKED correspond by index order
-DIRSLOCAL=(
-  "$HOME/.config/git"
-)
+# DIRSLOCAL=(
+#   "$HOME/.config/git"
+# )
 
-DIRSLINKED=(
-  "$HOME/dotfiles/config/git"
-)
+# DIRSLINKED=(
+#   "$HOME/dotfiles/config/git"
+# )
 
 # ~/ dot file symlinks
-# requires a c-style loops to access array index numbers
+# requires a c-style loop to access array index numbers
 for ((i=0; i<${#FILESLOCAL[@]}; ++i)); do
   if [ -f "${FILESLOCAL[$i]}" ];
   then
@@ -51,17 +59,17 @@ for ((i=0; i<${#FILESLOCAL[@]}; ++i)); do
 done
 
 # ~/.config directory symlinks
-for ((j=0; j<${#DIRSLOCAL[@]}; ++j)); do
-  if [ ! -d "${DIRSLOCAL[$j]}" ]
-  then
-    mkdir "${DIRSLOCAL[$j]}"
-  fi
-  if [ -d "${DIRSLOCAL[$j]}" ]
-  then
-    mv "${DIRSLOCAL[$j]}" "${DIRSLOCAL[$j]}.old"
-  fi
-  ln -s "${DIRSLINKED[$j]}" "${DIRSLOCAL[$j]}"
-done
+# for ((j=0; j<${#DIRSLOCAL[@]}; ++j)); do
+#   if [ ! -d "${DIRSLOCAL[$j]}" ]
+#   then
+#     mkdir "${DIRSLOCAL[$j]}"
+#   fi
+#   if [ -d "${DIRSLOCAL[$j]}" ]
+#   then
+#     mv "${DIRSLOCAL[$j]}" "${DIRSLOCAL[$j]}.old"
+#   fi
+#   ln -s "${DIRSLINKED[$j]}" "${DIRSLOCAL[$j]}"
+# done
 
 # Install vim-plug and bootstrap the vim/neovim environment
 source "$HOME/dotfiles/initscripts/viminit.sh"
