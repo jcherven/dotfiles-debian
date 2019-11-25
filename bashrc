@@ -12,27 +12,6 @@
 
       # GNU coreutils, if you decide to use them instead of the built in BSD utils
       export PATH="$(brew --prefix coreutils)/libexev/gnubin:$PATH"
-      # nvm
-        export NVM_DIR="$HOME/.nvm"
-        # This loads nvm
-        [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-        # This loads nvm bash_completion
-        [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-      # yarn
-        export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
-      # mongodb
-        export MONGO_PATH="/usr/local/Cellar/mongodb/4.*/bin"
-        export PATH="$PATH:$MONGO_PATH/bin"
-
-      # sql
-        export PATH=/usr/local/mysql/bin:$PATH
-
-      # heroku cli
-        if [ ! -x "$(command -v heroku)" ]; then
-          heroku autocomplete:script bash
-        fi
     fi
   # end PATH exports
 
@@ -86,9 +65,9 @@
     if [ -x "$(command -v gtar)" ]; then
       alias tar='gtar'
     fi
-    if [ -x "$(command -v gwhich)" ]; then
-      alias which='gwhich'
-    fi
+    # if [ -x "$(command -v gwhich)" ]; then
+    #   alias which='gwhich'
+    # fi
     if [ -x "$(command -v gdircolors)" ]; then
       alias dircolors='gdircolors'
     fi
@@ -130,3 +109,4 @@ man() {
 
 # Git completion for branch names, subcommands, and more
 source "$HOME/dotfiles/git-completion.bash"
+

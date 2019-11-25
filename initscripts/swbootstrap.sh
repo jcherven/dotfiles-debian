@@ -1,6 +1,7 @@
-#!/bin/bash
+##!/bin/bash
 
 set -e
+
 
 function homebrew_bootstrap {
   echo "Bootstrapping jcherven's basic terminal environment via Homebrew"
@@ -12,12 +13,8 @@ function homebrew_bootstrap {
 
   brew update
 
-  brew tap caskroom/cask
   brew tap homebrew/cask-versions
   brew tap homebrew/cask-fonts
-
-  brew upgrade --all
-  brew cask upgrade --all
 
   # These are GNU alternatives for the BSD utilities that come with MacOS, which are less up to date and sometimes have less convenient runtime options. Homebrew handles the PATH exports for these on its own.
   brew install perl
@@ -57,9 +54,8 @@ function homebrew_bootstrap {
   brew install ed
   brew install make
 
-
   # These are the most important things you need to get to work quickly.
-  brew install pcre
+  #brew install pcre
   brew install reattach-to-user-namespace
   brew install readline
   brew install curl
@@ -81,59 +77,13 @@ function homebrew_bootstrap {
 
   # Post-install
   brew cleanup
-  brew cask cleanup
 
   echo "Environment bootstrap via Homebrew has finished."
 }
 
-function macos_tools_bootstrap {
-  # nvm/nodejs
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
-  # npm globals
-  npm install --global prettier lite-server nodemon
-  # heroku cli
-  brew tap heroku/brew
-  brew install heroku
-  heroku autocomplete
-
-}
-
-function apt_bootstrap {
-  echo "Bootstrapping jcherven's basic terminal environment via apt"
-  # Ask for the administrator password upfront
-  sudo -v
-  # Keep-alive: update existing `sudo` time stamp until script has finished
-  while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-  # apt update and install commands go here
-  sudo apt update
-
-  if [ ! "$(command -v curl)" ]; then
-    sudo apt install -y curl
-  fi
-  sudo apt install -y tmux
-  sudo apt install -y neovim
-  sudo apt install -y ranger
-  sudo apt install -y w3m
-  sudo apt install -y links
-  sudo apt install -y lynx
-
-  echo "Environment bootstrap via apt has finished."
-}
-
-function linux_tools_bootstrap {
-  # nvm/nodejs
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
-  # npm globals
-  npm install --global prettier lite-server nodemon
-  # heroku cli
-  sudo curl https://cli-assets.heroku.com/install.sh | sh
-}
-
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  homebrew_bootstrap
-elif [[ "$OSTYPE" == "linux-gnu" ]]; then
-  apt_bootstrap
+  if [ ! "$(command -v brew)" ]; then
+    homebrew_bootstrap
 fi
 
 # ex: set foldmethod=marker:

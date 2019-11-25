@@ -37,7 +37,6 @@ FILESLINKED=(
   "$HOME/dotfiles/config/git/git-completion.bash"
   "$HOME/dotfiles/config/git/git-prompt.sh"
 )
-
 # Symlinks for directories that are located ~/
 # the arrays DIRSLOCAL and DIRSLINKED correspond by index order
 # DIRSLOCAL=(
@@ -48,10 +47,28 @@ FILESLINKED=(
 #   "$HOME/dotfiles/config/git"
 # )
 
+# Install vim-plug and bootstrap the vim/neovim environment
+source "$HOME/dotfiles/initscripts/viminit.sh"
+
+# # Set preferred MacOS settings
+# if [[ "$OSTYPE" == "darwin"* ]]; then
+#   source "$HOME/dotfiles/initscripts/macosinit.sh"
+# fi
+
+# create the ranger directory in .config
+if [ ! -d "$HOME/.config/ranger" ]; then
+  mkdir -p "$HOME/.config/ranger"
+fi
+
+# create the git directory in .config
+if [ ! -d "$HOME/.config/git" ]; then
+  mkdir -p "$HOME/.config/git"
+fi
+
 # ~/ dot file symlinks
 # requires a c-style loop to access array index numbers
 for ((i=0; i<${#FILESLOCAL[@]}; ++i)); do
-  if [ -f "${FILESLOCAL[$i]}" ];
+  if [ -e "${FILESLOCAL[$i]}" ];
   then
     mv "${FILESLOCAL[$i]}" "${FILESLOCAL[$i]}.old"
   fi
@@ -70,14 +87,6 @@ done
 #   fi
 #   ln -s "${DIRSLINKED[$j]}" "${DIRSLOCAL[$j]}"
 # done
-
-# Install vim-plug and bootstrap the vim/neovim environment
-source "$HOME/dotfiles/initscripts/viminit.sh"
-
-# Set preferred MacOS settings
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  source "$HOME/dotfiles/initscripts/macosinit.sh"
-fi
 
 popd
 
