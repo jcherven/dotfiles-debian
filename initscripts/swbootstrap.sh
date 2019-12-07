@@ -10,7 +10,7 @@ TAPS=(
 
 # Listing of Brew Formulae
 FORMULAE=(
-  # These are GNU alternatives for the BSD utilities that come with MacOS, which are less up to date and sometimes have less convenient runtime options. Homebrew handles the PATH exports for these on its own.
+  # These are GNU alternatives for the BSD utilities that come with MacOS, which are more up to date and sometimes have more convenient command line options. Homebrew handles the PATH exports for these on its own.
   "perl"
   "python"
   "bash"
@@ -76,8 +76,13 @@ CASKSOFTWARE=(
   "multifirefox"
 )
 
+# Listing of Casks that need to be fetched manually for installation
+FETCHEDCASKS=(
+  "eloston-chromium"
+)
+
 function homebrew_bootstrap {
-  echo "Bootstrapping jcherven's basic terminal environment via Homebrew"
+  echo "Bootstrapping jcherven's basic MacOS terminal environment via Homebrew"
 
   # install brew if it is absent {{{
   if [ ! -x "$(command -v brew)" ]; then
@@ -90,29 +95,40 @@ function homebrew_bootstrap {
 
   # Commands to install brew formulae {{{
   # Brew taps
+  echo
+  echo "Installing required Homebrew Taps:"
   for ((i=0; i<${#TAPS[@]}; ++i)); do
-    brew tap "{TAPS[$i]}"
+    brew tap "${TAPS[$i]}"
   done
 
   # Install Formulae
+  echo
+  echo "Installing terminal tools (Formulae):"
   for ((j=0; j<${FORMULAE[@]}; ++j)); do
-    brew install "{FORMULAE[$j]}"
+    brew install "${FORMULAE[$j]}"
   done
 
   # Install Cask Fonts
+  echo
+  echo "Installing Fonts (Casks):"
   for ((k=0; k<${CASKFONTS[@]}; ++k)); do
-    brew cask install "{CASKFONTS[$k]}"
+    brew cask install "${CASKFONTS[$k]}"
   done
 
   # Install Cask Software
+  echo
+  echo "Installing GUI apps (Casks):"
   for ((l=0; l<${CASKSOFTWARE[@]}; ++l)); do
-    brew cask install "{CASKSOFTWARE[$l]}"
+    brew cask install "${CASKSOFTWARE[$l]}"
+  done
+
+  # Install Fetched Cask apps
+  echo
+  echo "Installing Fetched GUI apps (Casks):"
+  for ((m=0; m<${FETCHEDCASKS[@]}; ++m)); do
+    brew cask install "${FETCHEDCASKS[m]}"
   done
   #}}}
-
-  # Miscellaneous brew installs that don't fit into the automation above
-  brew cask fetch eloston-chromium
-  brew cask install eloston-chromium
 
   # All of the individual install commands {{{
   # Uncomment to revert to working state
