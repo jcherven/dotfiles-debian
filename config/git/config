@@ -3,4 +3,8 @@
 	email = jcherven@mail.usf.edu
 [core]
 	excludesfile = $HOME/.config/git/ignore
-	editor = vim
+	editor = nvim
+[push]
+	default = upstream
+[merge]
+	conflictStyle = diff3
