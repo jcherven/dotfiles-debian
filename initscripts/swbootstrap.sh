@@ -162,7 +162,7 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]]; then
   install_nvm
   echo "The NVM installation requires a restart of the terminal."
-  echo "After restarting the terminal, run the ~/dotfiles/nodeinit.sh script."
+  echo "After restarting the terminal, run the ~/dotfiles/initNodejs.sh script."
 fi
 
 # ex: set foldmethod=marker:

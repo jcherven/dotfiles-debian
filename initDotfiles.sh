@@ -85,6 +85,6 @@ for ((i=0; i<${#FILESLOCAL[@]}; ++i)); do
 done
 #}}}
 
-echo "dotfileInit.sh has completed."
+echo "initDotfiles.sh has completed."
 
 # ex: set foldmethod=marker
