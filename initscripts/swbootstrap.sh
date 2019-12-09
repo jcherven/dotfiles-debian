@@ -130,83 +130,39 @@ function homebrew_bootstrap {
   done
   #}}}
 
-  # All of the individual install commands {{{
-  # Uncomment to revert to working state
-  # Then comment the automated install commands in the previous section
-  # brew tap homebrew/cask-versions
-  # brew tap homebrew/cask-fonts
-
-  # # Brew packages
-  # # These are GNU alternatives for the BSD utilities that come with MacOS, which are less up to date and sometimes have less convenient runtime options. Homebrew handles the PATH exports for these on its own.
-  # brew install perl
-  # brew install python
-  # brew install bash
-  # brew install screen
-  # brew install binutils
-  # brew install diffutils
-  # brew install gawk
-  # brew install gnutls
-  # brew install gzip
-  # brew install watch
-  # brew install wget
-  # brew install emacs
-  # brew install gpatch
-  # brew install less
-  # brew install m4
-  # brew install nano
-  # brew install file-formula
-  # brew install git
-  # brew install openssh
-  # brew install rsync
-  # brew install svn
-  # brew install unzip
-
-  # # These are replacements for certain BSD utilities for which Homebrew does not handle the PATH exports. They are handled with aliases in .bashrc.
-  # brew install coreutils
-  # brew install findutils
-  # brew install grep
-  # brew install gnu-tar
-  # brew install gnu-which
-
-  # # In cases where you don't want to use the GNU version by default because you want the choice to use the BSD version, the commands must be invoked with "ggrep", "gtar", "gmake" and so on.
-  # brew install gnu-sed
-  # brew install gnu-indent
-  # brew install wdiff
-  # brew install ed
-  # brew install make
-
-  # # These are the most important things you need to get to work quickly.
-  # brew install reattach-to-user-namespace
-  # brew install readline
-  # brew install curl
-  # brew install bash-completion
-  # brew install tmux
-  # brew install neovim
-  # brew install ranger
-  # brew install w3m
-  # brew install links
-  # brew install lynx
-
-  # # Fonts
-  # brew cask install font-iosevka
-  # brew cask install font-iosevka-slab
-  # brew cask install font-terminus
-
-  # # GUI apps via Cask
-  # brew cask install iterm2
-  # brew cask install keepassxc
-  # brew cask install macvim
-  #}}}
-
   # Post-install
   brew cleanup
 
   echo "Environment bootstrap via Homebrew has finished."
 }
 
+function install_nvm {
+  # Install Nodejs via NVM
+  # https://yoember.com/nodejs/the-best-way-to-install-node-js-with-yarn/
+  if [ ! -x "$(command -v nvm)" ]; then
+    echo "Installing NVM via Git"
+    export NVM_DIR="$HOME/.nvm" && (
+      git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR"
+      pushd "$NVM_DIR"
+      # Suppress Git's detached HEAD message
+      git config advice.detachedHead false
+      git checkout "$(git describe --abbrev=0 --tags --match "v[0-9]*" "$(git rev-list --tags --max-count=1)")"
+    ) && \. "$NVM_DIR/nvm.sh"
+  fi
+}
+
+# Install Homebrew and basic apps via function
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  if [ ! "$(command -v brew)" ]; then
+  if [ ! -x "$(command -v brew)" ]; then
     homebrew_bootstrap
+  fi
+fi
+
+# Install nvm via function
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  install_nvm
+  echo "The NVM installation requires a restart of the terminal."
+  echo "After restarting the terminal, run the ~/dotfiles/nodeinit.sh script."
 fi
 
 # ex: set foldmethod=marker:
