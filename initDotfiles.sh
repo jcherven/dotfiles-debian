@@ -34,8 +34,6 @@ FILESLOCAL=( # items correspond  to FILESLINKED by index order
   # git global configs
   "$HOME/.config/git/config"
   "$HOME/.config/git/ignore"
-  "$HOME/.config/git/git-completion.bash"
-  "$HOME/.config/git/git-prompt.sh"
   # other applications
   "$HOME/.config/ranger/rc.conf"
   "$HOME/.config/ranger/rifle.conf"
@@ -54,8 +52,6 @@ FILESLINKED=(
   # git global configs
   "$HOME/dotfiles/config/git/config"
   "$HOME/dotfiles/config/git/ignore"
-  "$HOME/dotfiles/config/git/git-completion.bash"
-  "$HOME/dotfiles/config/git/git-prompt.sh"
   # other applications
   "$HOME/dotfiles/config/ranger/rc.conf"
   "$HOME/dotfiles/config/ranger/rifle.conf"
