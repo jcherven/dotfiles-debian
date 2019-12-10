@@ -12,9 +12,9 @@ DIRECTORIES=(
   )
 
 # Create directories defined in DIRECTORIES array. Requires /bin/bash for C-style looping to access array indexes {{{
-for ((j=0; j<${#DIRSLOCAL[@]}; ++j)); do
-  if [ ! -d "${DIRSLOCAL[$j]}" ]; then
-    mkdir -p "${DIRSLOCAL[$j]}"
+for ((j=0; j<${#DIRECTORIES[@]}; ++j)); do
+  if [ ! -d "${DIRECTORIES[$j]}" ]; then
+    mkdir -p "${DIRECTORIES[$j]}"
   fi
 done
 #}}}
