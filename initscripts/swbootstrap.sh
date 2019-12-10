@@ -97,6 +97,7 @@ function homebrew_bootstrap {
   # Brew taps
   echo
   echo "Installing required Homebrew Taps:"
+
   for ((i=0; i<${#TAPS[@]}; ++i)); do
     brew tap "${TAPS[$i]}"
   done
@@ -104,28 +105,28 @@ function homebrew_bootstrap {
   # Install Formulae
   echo
   echo "Installing terminal tools (Formulae):"
-  for ((j=0; j<${FORMULAE[@]}; ++j)); do
+  for ((j=0; j<${#FORMULAE[@]}; ++j)); do
     brew install "${FORMULAE[$j]}"
   done
 
   # Install Cask Fonts
   echo
   echo "Installing Fonts (Casks):"
-  for ((k=0; k<${CASKFONTS[@]}; ++k)); do
+  for ((k=0; k<${#CASKFONTS[@]}; ++k)); do
     brew cask install "${CASKFONTS[$k]}"
   done
 
   # Install Cask Software
   echo
   echo "Installing GUI apps (Casks):"
-  for ((l=0; l<${CASKSOFTWARE[@]}; ++l)); do
+  for ((l=0; l<${#CASKSOFTWARE[@]}; ++l)); do
     brew cask install "${CASKSOFTWARE[$l]}"
   done
 
   # Install Fetched Cask apps
   echo
   echo "Installing Fetched GUI apps (Casks):"
-  for ((m=0; m<${FETCHEDCASKS[@]}; ++m)); do
+  for ((m=0; m<${#FETCHEDCASKS[@]}; ++m)); do
     brew cask install "${FETCHEDCASKS[m]}"
   done
   #}}}
