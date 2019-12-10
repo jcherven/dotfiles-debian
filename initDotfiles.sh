@@ -61,6 +61,11 @@ FILESLINKED=(
   "$HOME/dotfiles/config/ranger/rifle.conf"
 )
 
+# Create required directories specified in DIRECTORIES
+for ((j=0; j<${#DIRECTORIES[@]}; ++j)); do
+  mkdir -p "${DIRECTORIES[$j]}"
+done
+
 # Call software bootstrap install/config scripts {{{
 # Install the OS's basic environment bootstrap apps (currently supports MacOS)
 source "$HOME/dotfiles/initscripts/swbootstrap.sh"
