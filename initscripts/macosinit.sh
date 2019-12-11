@@ -2,8 +2,7 @@
 
 function set_macos_settings {
   # MacOS 10.13 specific config settings {{{
-  # Close any open System Preferences panes, to prevent them from overriding
-  # settings we’re about to change
+  # Close any open System Preferences panes
   osascript -e 'tell application "System Preferences" to quit'
 
   # Ask for the administrator password upfront
@@ -47,9 +46,9 @@ function set_macos_settings {
 
   # Highlight Color to "Purple" (finder and UI windows)
   # The formula for custom colors is the color's RGB numeric value / 255 (six figures behind decimal); 255 is 1.000000
-  defaults write NSGlobalDomain AppleHighlightColor -string "0.968627 0.831373 1.000000"
-  # Highlight Color to the custom Miku green from Jummiterm
-  # defaults write NSGlobalDomain AppleHighlightColor -string "0.125490 0.839215 0.600000"
+  # defaults write NSGlobalDomain AppleHighlightColor -string "0.968627 0.831373 1.000000"
+  # Highlight Color to the custom Miku green
+  defaults write NSGlobalDomain AppleHighlightColor -string "0.000000 1.000000 0.600000"
 
   # Finder: show hidden files by default
   defaults write com.apple.finder AppleShowAllFiles -bool true
