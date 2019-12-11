@@ -1,22 +1,32 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
-if [ "$(command -v nvim)" ]
+NVIMPLUG="$HOME/.config/nvim/autoload/plug.vim"
+NVIMINIT="$HOME/.config/nvim/init.vim"
+VIMPLUG="$HOME/.vim/autoload/plug.vim"
+MYVIMRC="$HOME/.vimrc"
+PLUGURL="https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+
+if [[ -x "$(command -v nvim)" ]]
 then
-  curl -fLo "$HOME/.config/nvim/autoload/plug.vim" --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-  if [ ! -e "$HOME/.config/nvim/init.vim" ]; then
-    ln -s "$HOME/dotfiles/config/nvim/init.vim" "$HOME/.config/nvim/init.vim"
+  echo
+  echo "Fetching vim-plug for Neovim"
+  curl -fLo "$NVIMPLUG" --create-dirs "$PLUGURL"
+  if [[ ! -e "$NVIMINIT" ]]; then
+    ln -s "$HOME/dotfiles/config/nvim/init.vim" "$NVIMINIT"
   fi
-  nvim --headless +PlugInstall +qa
+  nvim --headless +PlugInstall +qa && echo "vim-plug for Neovim configured."
 fi
 
-if [ "$(command -v vim)" ]
+if [[ -x "$(command -v vim)" ]]
 then
-  curl -fLo "$HOME/.vim/autoload/plug.vim" --create-dirs "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-  if [ ! -e "$HOME/.vimrc" ]; then
-    ln -s "$HOME/dotfiles/config/nvim/init.vim" "$HOME/.vimrc"
+  echo
+  echo "Fetching vim-plug for Vim"
+  curl -fLo "$VIMPLUG" --create-dirs "$PLUGURL"
+  if [[ ! -e "$MYVIMRC" ]]; then
+    ln -s "$HOME/dotfiles/config/nvim/init.vim" "$MYVIMRC"
   fi
-  vim -c 'PlugInstall | qa'
+  vim -c 'PlugInstall | qa' && echo "vim-plug for Vim configured."
 fi
 
