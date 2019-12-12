@@ -94,6 +94,9 @@ elif [[ "$OSTYPE" == "darwin"*  ]]; then
   fi
 fi #}}}
 
+# For the Berkeley CS61a course's autograder
+alias ok="python3 ok --local"
+
 # end Aliases
 
 # Highlighted man page output in linux and macos {{{
