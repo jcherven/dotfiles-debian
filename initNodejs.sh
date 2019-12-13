@@ -15,11 +15,12 @@ yarn global add npm
 npm rm -g npm
 source "$HOME/.bashrc"
 
-# Install basic NPM packages via yarn
+# Install basic global NPM packages via yarn
 NPMPKGS=(
 "lite-server"
 "nodemon"
 "prettier"
+"neovim"
 )
 for ((i=0; i<${#NPMPKGS[@]}; ++i)); do
   yarn global add "${NPMPKGS[$i]}"
