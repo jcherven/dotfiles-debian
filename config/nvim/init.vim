@@ -43,8 +43,17 @@ nnoremap <C-L> <C-w><C-L>
 nnoremap <C-H> <C-w><C-H>
 nnoremap <space> :
 set mouse=a
-set signcolumn=no
 "set background=dark
+
+" Settings needed for CoC the code completion plugin
+set hidden
+set nobackup
+set nowritebackup
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
+
 
 call plug#begin('~/.vim/plugged')
   Plug 'christoomey/vim-tmux-navigator'
@@ -99,10 +108,14 @@ call plug#begin('~/.vim/plugged')
   Plug 'djoshea/vim-autoread'
   Plug 'jiangmiao/auto-pairs'
   Plug 'sheerun/vim-polyglot'
+  Plug 'mattn/emmet-vim'
+    let g:user_emmet_leader_key=','
   " Plugins which only work with nvim are called in here
   if has('nvim')
     Plug 'jcherven/vim-fromtermcolors'
     " Plug '~/Desktop/vim-fromtermcolors'
+    " Code completion. See github.com/neoclide/coc.nvim/wiki/ for usage help
+    Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
   endif
 call plug#end()
 
