@@ -45,16 +45,6 @@ nnoremap <space> :
 set mouse=a
 "set background=dark
 
-" Settings needed for CoC the code completion plugin
-set hidden
-set nobackup
-set nowritebackup
-set cmdheight=2
-set updatetime=300
-set shortmess+=c
-set signcolumn=yes
-
-
 call plug#begin('~/.vim/plugged')
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'jeffKreeftmeijer/vim-numbertoggle'
@@ -118,6 +108,17 @@ call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
   endif
 call plug#end()
+
+" Settings needed for CoC the code completion plugin
+set hidden
+set nobackup
+set nowritebackup
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set signcolumn=no
+
+" End CoC settings
 
 function PlugLoaded(name)
   return (
