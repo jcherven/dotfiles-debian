@@ -36,6 +36,9 @@ set cursorline
 set scrolloff=8
 set splitbelow
 set splitright
+"set background=dark
+
+" General Keybindings
 map <SPACE> <leader>
 nnoremap <C-J> <C-w><C-J>
 nnoremap <C-K> <C-w><C-K>
@@ -43,7 +46,6 @@ nnoremap <C-L> <C-w><C-L>
 nnoremap <C-H> <C-w><C-H>
 nnoremap <space> :
 set mouse=a
-"set background=dark
 
 call plug#begin('~/.vim/plugged')
   Plug 'christoomey/vim-tmux-navigator'
@@ -97,28 +99,56 @@ call plug#begin('~/.vim/plugged')
   Plug 'yuttie/comfortable-motion.vim'
   Plug 'djoshea/vim-autoread'
   Plug 'jiangmiao/auto-pairs'
+    au Filetype html let b:AutoPairsDefine({'<!--' : '-->'})
   Plug 'sheerun/vim-polyglot'
   Plug 'mattn/emmet-vim'
     let g:user_emmet_leader_key=','
-  " Plugins which only work with nvim are called in here
+  " Plugins which only work with neovim are called in here
   if has('nvim')
     Plug 'jcherven/vim-fromtermcolors'
     " Plug '~/Desktop/vim-fromtermcolors'
-    " Code completion. See github.com/neoclide/coc.nvim/wiki/ for usage help
+    " Code completion. See github.com/neoclide/coc.nvim/wiki/ for usage help {{{
     Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
+    " }}}
+    Plug 'fannheyward/coc-markdownlint', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'weirongxu/coc-explorer', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'iamcco/coc-spell-checker', {'do': 'yarn install --frozen-lockfile'}
   endif
 call plug#end()
 
-" Settings needed for CoC the code completion plugin
-set hidden
-set nobackup
-set nowritebackup
-set cmdheight=2
-set updatetime=300
-set shortmess+=c
-set signcolumn=no
-
-" End CoC settings
+" Settings needed for the CoC code completion plugin {{{
+  set hidden
+  set nobackup
+  set nowritebackup
+  set updatetime=300
+  " These are optional
+  set cmdheight=2
+  set shortmess+=c
+  set signcolumn=no
+  " Use tab for trigger completion with characters ahead and navigate.
+  " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+  inoremap <silent><expr> <TAB>
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ coc#refresh()
+  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
+  " Use <c-space> to trigger completion.
+  inoremap <silent><expr> <c-space> coc#refresh()
+  " Highlight symbol under cursor on CursorHold
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+" End CoC settings }}}
 
 function PlugLoaded(name)
   return (
