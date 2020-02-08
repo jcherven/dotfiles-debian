@@ -95,6 +95,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'bronson/vim-trailing-whitespace'
   Plug 'easymotion/vim-easymotion'
+    map m <plug>(easymotion-prefix)
   Plug 'wesq3/vim-windowswap'
   Plug 'yuttie/comfortable-motion.vim'
   Plug 'djoshea/vim-autoread'
@@ -104,8 +105,6 @@ call plug#begin('~/.vim/plugged')
     let g:user_emmet_leader_key=','
   " Plugins which only work with neovim are called in here
   if has('nvim')
-    Plug 'jcherven/vim-fromtermcolors'
-    " Plug '~/Desktop/vim-fromtermcolors'
     " Code completion. See github.com/neoclide/coc.nvim/wiki/ for usage help {{{
     Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
@@ -116,12 +115,21 @@ call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
-    " }}}
     Plug 'fannheyward/coc-markdownlint', {'do': 'yarn install --frozen-lockfile'}
     Plug 'weirongxu/coc-explorer', {'do': 'yarn install --frozen-lockfile'}
     Plug 'iamcco/coc-spell-checker', {'do': 'yarn install --frozen-lockfile'}
+    " }}}
+    Plug 'jcherven/vim-fromtermcolors'
+    " Plug '~/Desktop/vim-fromtermcolors'
   endif
+
 call plug#end()
+function PlugLoaded(name)
+  return (
+	\ has_key(g:plugs, a:name) &&
+	\ isdirectory(g:plugs[a:name].dir) &&
+	\ stridx(&rtp, g:plugs[a:name].dir >= 0))
+endfunction
 
 " Settings needed for the CoC code completion plugin {{{
   set hidden
@@ -148,13 +156,6 @@ call plug#end()
   " Highlight symbol under cursor on CursorHold
   autocmd CursorHold * silent call CocActionAsync('highlight')
 " End CoC settings }}}
-
-function PlugLoaded(name)
-  return (
-        \ has_key(g:plugs, a:name) &&
-        \ isdirectory(g:plugs[a:name].dir) &&
-        \ stridx(&rtp, g:plugs[a:name].dir >= 0))
-endfunction
 
 if PlugLoaded('vim-fromtermcolors')
   colorscheme fromtermcolors
