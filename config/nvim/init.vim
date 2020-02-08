@@ -99,7 +99,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'yuttie/comfortable-motion.vim'
   Plug 'djoshea/vim-autoread'
   Plug 'jiangmiao/auto-pairs'
-    au Filetype html let b:AutoPairsDefine({'<!--' : '-->'})
   Plug 'sheerun/vim-polyglot'
   Plug 'mattn/emmet-vim'
     let g:user_emmet_leader_key=','
