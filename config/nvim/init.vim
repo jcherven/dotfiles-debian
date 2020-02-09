@@ -85,8 +85,10 @@ call plug#begin('~/.vim/plugged')
     let g:NERDTreeDirArrows=1
     let g:NERDTreeAutoDeleteBuffer=1
     let g:NERDTreeShowHidden=1
+    let g:NERDTreeSortHiddenFirst=1
     let g:NERDTreeMapJumpParent = "h"
     let g:NERDTreeMapActivateNode = "l"
+    let g:NERDTreeQuitOnOpen=1
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'mortonfox/nerdtree-clip'
   "}}}
