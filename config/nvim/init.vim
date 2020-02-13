@@ -27,12 +27,13 @@ set magic
 set number
 set autochdir
 set cursorline
-  " Only show the cursorline in the active window
+  " Only show the cursorline in the active window {{{
   augroup CursorLineOnlyInActiveWindow
   autocmd!
   autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
   autocmd WinLeave * setlocal nocursorline
   augroup END
+  " }}}
 set scrolloff=8
 set splitbelow
 set splitright
@@ -121,17 +122,25 @@ call plug#begin('~/.vim/plugged')
     Plug 'weirongxu/coc-explorer', {'do': 'yarn install --frozen-lockfile'}
     Plug 'iamcco/coc-spell-checker', {'do': 'yarn install --frozen-lockfile'}
     " }}}
-    Plug 'jcherven/vim-fromtermcolors'
-    " Plug '~/Desktop/vim-fromtermcolors'
+    " Plug 'jcherven/vim-fromtermcolors'
+    Plug '~/Desktop/vim-fromtermcolors'
   endif
-
 call plug#end()
+
+" Functions {{{
 function PlugLoaded(name)
   return (
 	\ has_key(g:plugs, a:name) &&
 	\ isdirectory(g:plugs[a:name].dir) &&
 	\ stridx(&rtp, g:plugs[a:name].dir >= 0))
 endfunction
+"}}}
+
+if PlugLoaded('vim-fromtermcolors')
+  colorscheme fromtermcolors
+else
+  colorscheme default
+endif
 
 " Settings needed for the CoC code completion plugin {{{
   set hidden
@@ -157,12 +166,7 @@ endfunction
   inoremap <silent><expr> <c-space> coc#refresh()
   " Highlight symbol under cursor on CursorHold
   autocmd CursorHold * silent call CocActionAsync('highlight')
+  highlight CocCodeLens ctermfg=8 guifg=8
 " End CoC settings }}}
-
-if PlugLoaded('vim-fromtermcolors')
-  colorscheme fromtermcolors
-else
-  colorscheme default
-endif
 
 " ex: set noexpandtab nolist foldmethod=marker:
