@@ -39,24 +39,6 @@ set splitbelow
 set splitright
 "set background=dark
 
-" Statusline Configuration {{{
-" Left alignment for the below customizations
-set statusline=
-  " Current buffer's file path relative to the git project root
-  set statusline+=%{FugitiveStatusline()}
-  set statusline+=%f
-  " Read Only marker
-  set statusline+=%r
-  " Help file marker
-  set statusline+=%h
-  " Modified marker
-  set statusline+=%{&modified?'[+]':''}
-" Right alignment for the below customizations
-set statusline+=%=
-  " Current line number,column number
-  set statusline+=\ %p%%
-" End Statusline Config }}}
-
 " General Keybindings
 map <SPACE> <leader>
 nnoremap <C-J> <C-w><C-J>
@@ -65,6 +47,15 @@ nnoremap <C-L> <C-w><C-L>
 nnoremap <C-H> <C-w><C-H>
 nnoremap <space> :
 set mouse=a
+
+" Use in a conditional statement to check if a plugin is installed
+" if PlugLoaded('plugin-name') do something endif
+function PlugLoaded(name)
+  return (
+        \ has_key(g:plugs, a:name) &&
+        \ isdirectory(g:plugs[a:name].dir) &&
+        \ stridx(&rtp, g:plugs[a:name].dir >= 0))
+endfunction
 
 call plug#begin('~/.vim/plugged')
   Plug 'christoomey/vim-tmux-navigator'
@@ -159,14 +150,25 @@ call plug#begin('~/.vim/plugged')
   endif
 call plug#end()
 
-" Functions {{{
-function PlugLoaded(name)
-  return (
-	\ has_key(g:plugs, a:name) &&
-	\ isdirectory(g:plugs[a:name].dir) &&
-	\ stridx(&rtp, g:plugs[a:name].dir >= 0))
-endfunction
-"}}}
+" Statusline Configuration {{{
+" Left alignment for the below customizations
+set statusline=
+  " Current buffer's file path relative to the git project root
+  if PlugLoaded('vim-fugitive')
+    set statusline+=%{FugitiveStatusline()}
+  endif
+  set statusline+=%f
+  " Read Only marker
+  set statusline+=%r
+  " Help file marker
+  set statusline+=%h
+  " Modified marker
+  set statusline+=%{&modified?'[+]':''}
+" Right alignment for the below customizations
+set statusline+=%=
+  " Current line number,column number
+  set statusline+=\ %p%%
+" End Statusline Config }}}
 
 if PlugLoaded('vim-fromtermcolors')
   colorscheme fromtermcolors
