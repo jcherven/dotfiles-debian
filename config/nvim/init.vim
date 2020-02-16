@@ -39,6 +39,14 @@ set splitbelow
 set splitright
 "set background=dark
 
+" Statusline Configuration {{{
+set statusline= " Clears the default statusline for the below customizations
+" Show the current buffer's file path relative to the git project root
+set statusline+=%f
+" Show the modified marker
+set statusline+=%{&modified?'[+]':''}
+" End Statusline Config }}}
+
 " General Keybindings
 map <SPACE> <leader>
 nnoremap <C-J> <C-w><C-J>
@@ -106,6 +114,20 @@ call plug#begin('~/.vim/plugged')
   Plug 'sheerun/vim-polyglot'
   Plug 'mattn/emmet-vim'
     let g:user_emmet_leader_key=','
+  Plug 'dbakker/vim-projectroot' "{{{
+    function! <SID>AutoProjectRootCD()
+      try
+        if &ft != 'help'
+          ProjectRootCD
+        endif
+      catch
+      " Silently ignore invalid buffers
+      endtry
+    endfunction
+
+    autocmd BufEnter * call <SID>AutoProjectRootCD()
+  "}}}
+
   " Plugins which only work with neovim are called in here
   if has('nvim')
     " Code completion. See github.com/neoclide/coc.nvim/wiki/ for usage help {{{
