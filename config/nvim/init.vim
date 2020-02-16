@@ -60,7 +60,10 @@ endfunction
 call plug#begin('~/.vim/plugged')
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'jeffKreeftmeijer/vim-numbertoggle'
-  Plug 'mkitt/tabline.vim'
+  " Plug 'mkitt/tabline.vim'
+  Plug 'gcmt/taboo.vim'
+    let g:taboo_modified_tab_flag="[+]"
+    let g:taboo_tab_format="| %N:%P%m | "
   Plug 'tpope/vim-fugitive'
   Plug 'dense-analysis/ale' "{{{
     let g:ale_fix_on_save=1
@@ -169,6 +172,37 @@ set statusline+=%=
   " Current line number,column number
   set statusline+=\ %p%%
 " End Statusline Config }}}
+
+" Tabline Configuration {{{
+" function MyTabLine()
+"   let s = ''
+"   for i in range(tabpagenr('$'))
+"     " select the highlighting
+"     if i + 1 == tabpagenr()
+"       let s .= '%#TabLineSel#'
+"     else
+"       let s .= '%#TabLine#'
+"     endif
+"     " set the tab page number (for mouse clicks)
+"     let s .= '%' . (i + 1) . 'T'
+"     " the label is made by MyTabLabel()
+"     let s .= ' %{MyTabLabel(' . (i + 1) . ')} '
+"   endfor
+"   " after the last tab fill with TabLineFill and reset tab page nr
+"   let s .= '%#TabLineFill#%T'
+"   " right-align the label to close the current tab page
+"   if tabpagenr('$') > 1
+"     let s .= '%=%#TabLine#%999Xclose'
+"   endif
+"   return s
+" endfunction
+
+" function MyTabLabel(n)
+"   let buflist = tabpagebuflist(a:n)
+"   let winnr = tabpagewinnr(a:n)
+"   return bufname(buflist[winnr - 1])
+" endfunction
+" End Tabline Configuration }}}
 
 if PlugLoaded('vim-fromtermcolors')
   colorscheme fromtermcolors
