@@ -25,7 +25,7 @@ set linebreak
 set breakindent
 set magic
 set number
-set autochdir
+set noautochdir
 set cursorline
   " Only show the cursorline in the active window {{{
   augroup CursorLineOnlyInActiveWindow
@@ -40,11 +40,21 @@ set splitright
 "set background=dark
 
 " Statusline Configuration {{{
-set statusline= " Clears the default statusline for the below customizations
-" Show the current buffer's file path relative to the git project root
-set statusline+=%f
-" Show the modified marker
-set statusline+=%{&modified?'[+]':''}
+" Left alignment for the below customizations
+set statusline=
+  " Current buffer's file path relative to the git project root
+  set statusline+=%{FugitiveStatusline()}
+  set statusline+=%f
+  " Read Only marker
+  set statusline+=%r
+  " Help file marker
+  set statusline+=%h
+  " Modified marker
+  set statusline+=%{&modified?'[+]':''}
+" Right alignment for the below customizations
+set statusline+=%=
+  " Current line number,column number
+  set statusline+=\ %p%%
 " End Statusline Config }}}
 
 " General Keybindings
