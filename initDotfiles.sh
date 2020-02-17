@@ -9,6 +9,8 @@ DIRECTORIES=(
   "$HOME/.config/nvim"
   "$HOME/.config/ranger"
   "$HOME/.config/git"
+  "$HOME/.config/alacritty"
+  "$HOME/.bash_completion/alacritty"
   )
 
 # Create directories defined in DIRECTORIES array. Requires /bin/bash for C-style looping to access array indexes {{{
@@ -27,6 +29,7 @@ FILESLOCAL=( # items correspond  to FILESLINKED by index order
   # bash and other shell configs
   "$HOME/.bash_profile"
   "$HOME/.bashrc"
+  "$HOME/.bash_completion/alacritty/alacritty.yml"
   "$HOME/.inputrc"
   "$HOME/.zshrc"
   # tmux
@@ -37,6 +40,7 @@ FILESLOCAL=( # items correspond  to FILESLINKED by index order
   # other applications
   "$HOME/.config/ranger/rc.conf"
   "$HOME/.config/ranger/rifle.conf"
+  "$HOME/.config/alacritty/alacritty.yml"
 )
 
 FILESLINKED=(
@@ -45,6 +49,7 @@ FILESLINKED=(
   # bash and other shell configs
   "$HOME/dotfiles/bash_profile"
   "$HOME/dotfiles/bashrc"
+  "$HOME/dotfiles/bash_completion/alacritty/alacritty.yml"
   "$HOME/dotfiles/inputrc"
   "$HOME/dotfiles/zshrc"
   # tmux
@@ -55,6 +60,7 @@ FILESLINKED=(
   # other applications
   "$HOME/dotfiles/config/ranger/rc.conf"
   "$HOME/dotfiles/config/ranger/rifle.conf"
+  "$HOME/dotfiles/config/alacritty/alacritty.yml"
 )
 
 # Call software bootstrap install/config scripts {{{
@@ -79,8 +85,8 @@ for ((i=0; i<${#FILESLOCAL[@]}; ++i)); do
   fi
   ln -s "${FILESLINKED[$i]}" "${FILESLOCAL[$i]}"
 done
-#}}}
+# }}}
 
 echo "initDotfiles.sh has completed."
 
-# ex: set foldmethod=marker
+# ex: set foldmethod=marker:
