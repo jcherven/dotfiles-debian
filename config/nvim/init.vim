@@ -90,7 +90,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/nerdtree' "{{{
     autocmd StdinReadPre * let s:std_in=1
     autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-    map <C-n> :NERDTreeToggle<CR>
+    map <C-_> :NERDTreeToggle<CR>
     let NERDTreeMinimalUI=1
     let g:NERDTreeWinPos = "left"
     let g:NERDTreeShowLineNumbers=1
@@ -101,6 +101,7 @@ call plug#begin('~/.vim/plugged')
     let g:NERDTreeMapJumpParent = "h"
     let g:NERDTreeMapActivateNode = "l"
     let g:NERDTreeQuitOnOpen=1
+    let g:NERDTreeStatusline=-1
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'mortonfox/nerdtree-clip'
   "}}}
@@ -155,11 +156,12 @@ call plug#end()
 " Statusline Configuration {{{
 " Left alignment for the below customizations
 set statusline=
+  set statusline+=\ 
+  " if PlugLoaded('vim-fugitive')
+  "   set statusline+=%{FugitiveStatusline()}
+  " endif
   " Current buffer's file path relative to the git project root
-  if PlugLoaded('vim-fugitive')
-    set statusline+=%{FugitiveStatusline()}
-  endif
-  set statusline+=%f
+  set statusline+=\ %f
   " Read Only marker
   set statusline+=%r
   " Help file marker
