@@ -116,7 +116,6 @@ call plug#begin('~/.vim/plugged')
     let g:NERDTreeQuitOnOpen=1
     let g:NERDTreeStatusline="| menu:m | help:? |"
     Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'mortonfox/nerdtree-clip'
   "}}}
   Plug 'sickill/vim-pasta'
   Plug 'tpope/vim-surround'
