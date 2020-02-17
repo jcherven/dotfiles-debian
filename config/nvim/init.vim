@@ -88,9 +88,24 @@ call plug#begin('~/.vim/plugged')
     \}
     "}}}
   Plug 'scrooloose/nerdtree' "{{{
+    " Function for smart NERDTree toggle behavior.
+    " Call on the NERDTree toggle keybinding.
+    " Performs NERDTreeFind on open, toggles the buffer on close.
+    function! NERDTreeFindToggle()
+      if exists("g:NERDTree") && g:NERDTree.IsOpen()
+	NERDTreeClose
+      elseif filereadable(expand('%'))
+	NERDTreeFind
+      else
+	NERDTree
+      endif
+    endfunction
     autocmd StdinReadPre * let s:std_in=1
     autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-    map <C-_> :NERDTreeToggle<CR>
+    " The underscore maps to / for some reason
+    map <C-_> :call NERDTreeFindToggle()<CR>
+    let g:NERDTreeMapJumpParent = "h"
+    let g:NERDTreeMapActivateNode = "l"
     let NERDTreeMinimalUI=1
     let g:NERDTreeWinPos = "left"
     let g:NERDTreeShowLineNumbers=1
@@ -98,10 +113,8 @@ call plug#begin('~/.vim/plugged')
     let g:NERDTreeAutoDeleteBuffer=1
     let g:NERDTreeShowHidden=1
     let g:NERDTreeSortHiddenFirst=1
-    let g:NERDTreeMapJumpParent = "h"
-    let g:NERDTreeMapActivateNode = "l"
     let g:NERDTreeQuitOnOpen=1
-    let g:NERDTreeStatusline=-1
+    let g:NERDTreeStatusline="| menu:m | help:? |"
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'mortonfox/nerdtree-clip'
   "}}}
