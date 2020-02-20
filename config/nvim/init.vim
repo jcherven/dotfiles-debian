@@ -4,6 +4,7 @@ set nocompatible
 set directory^=$HOME/.vim/tmp//
 set encoding=utf-8
 set fileformats=unix,dos,mac
+" set textwidth=80
 "set t_Co=256
 set lazyredraw
 set clipboard=unnamed
@@ -16,8 +17,9 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
-set expandtab
+set tabstop=2
 set shiftwidth=2
+set expandtab
 set softtabstop=2
 set autoindent
 set smartindent
@@ -169,6 +171,8 @@ call plug#begin('~/.vim/plugged')
 
     autocmd BufEnter * call <SID>AutoProjectRootCD()
   "}}}
+  Plug 'lifepillar/vim-colortemplate'
+	Plug '~/Desktop/vim-jummiterm'
 
   " Plugins which only work with neovim are called in here
   if has('nvim')
