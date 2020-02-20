@@ -173,6 +173,9 @@ call plug#begin('~/.vim/plugged')
   "}}}
   Plug 'lifepillar/vim-colortemplate'
 	Plug '~/Desktop/vim-jummiterm'
+	Plug 'kamykn/dark-theme.vim'
+	Plug 'smallwat3r/vim-efficient'
+	Plug '~/Desktop/jummidark.vim'
 
   " Plugins which only work with neovim are called in here
   if has('nvim')
@@ -225,11 +228,12 @@ set statusline+=%=
   set statusline+=%0*\ %l,%2c\ %3p%%\ 
 " End Statusline Config }}}
 
-if PlugLoaded('vim-fromtermcolors')
-  colorscheme fromtermcolors
-else
-  colorscheme default
-endif
+colorscheme jummidark
+" if PlugLoaded('vim-fromtermcolors')
+"   colorscheme fromtermcolors
+" else
+"   colorscheme default
+" endif
 
 " Settings needed for the CoC code completion plugin {{{
   set hidden
