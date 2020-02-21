@@ -34,8 +34,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 20
-    y: 20
+    x: 15
+    y: 15
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: true
@@ -97,7 +97,7 @@ window:
 # Some applications, like Emacs, rely on knowing about the width of a tab.
 # To prevent unexpected behavior in these applications, it's also required to
 # change the `it` value in terminfo when altering this setting.
-#tabspaces: 8
+tabspaces: 2
 
 # Font configuration
 font:
@@ -218,22 +218,22 @@ colors:
   normal:
     black:   '0x292b2e'
     red:     '0xce537a'
-    green:   '0x19a878'
-    yellow:  '0x20d699'
-    blue:    '0x806aa8'
+    green:   '0x098f99'
+    yellow:  '0x19a878'
+    blue:    '0x404374'
     magenta: '0xbc6ec5'
-    cyan:    '0xd3a2d8'
+    cyan:    '0x098f99'
     white:   '0xb2b2b2'
 
   # Bright colors
   bright:
     black:   '0x68727c'
-    red:     '0x20d699'
-    green:   '0x19a878'
-    yellow:  '0xff9bf1'
-    blue:    '0x098f99'
-    magenta: '0x21bbc7'
-    cyan:    '0xd3a2d8'
+    red:     '0xff9bf1'
+    green:   '0x21bbc7'
+    yellow:  '0x20d699'
+    blue:    '0x806aa8'
+    magenta: '0xd3a2d8'
+    cyan:    '0x21bbc7'
     white:   '0xb1951d'
 
   # Dim colors
@@ -326,10 +326,10 @@ live_config_reload: true
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-#shell:
-#  program: /bin/bash
-#  args:
-#    - --login
+# shell:
+#   program: /bin/bash
+#   args:
+#     - --login
 
 # Startup directory
 #
@@ -348,7 +348,7 @@ live_config_reload: true
 #winpty_backend: false
 
 # Send ESC (\x1b) before characters when alt is pressed.
-alt_send_esc: true
+#alt_send_esc: true
 
 #debug:
   # Display the time it takes to redraw each frame.
@@ -558,6 +558,8 @@ key_bindings:
   - { key: Q,      mods: Command,         action: Quit             }
   - { key: W,      mods: Command,         action: Quit             }
   - { key: F,      mods: Command|Control, action: ToggleFullscreen }
+
+  # (My custom keybindings)
 
   #- { key: Paste,                    action: Paste                            }
   #- { key: Copy,                     action: Copy                             }
