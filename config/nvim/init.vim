@@ -176,6 +176,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'kamykn/dark-theme.vim'
 	Plug 'smallwat3r/vim-efficient'
 	Plug '~/Desktop/jummidark.vim'
+	Plug 'juleswang/css.vim'
 
   " Plugins which only work with neovim are called in here
   if has('nvim')
