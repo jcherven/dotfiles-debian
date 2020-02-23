@@ -176,7 +176,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'kamykn/dark-theme.vim'
 	Plug 'smallwat3r/vim-efficient'
 	Plug '~/Desktop/jummidark.vim'
-	Plug 'juleswang/css.vim'
+  Plug 'hail2u/vim-css3-syntax'
+  Plug 'cakebaker/scss-syntax.vim'
 
   " Plugins which only work with neovim are called in here
   if has('nvim')
@@ -189,6 +190,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
     Plug 'fannheyward/coc-markdownlint', {'do': 'yarn install --frozen-lockfile'}
     Plug 'weirongxu/coc-explorer', {'do': 'yarn install --frozen-lockfile'}
