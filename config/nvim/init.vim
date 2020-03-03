@@ -1,5 +1,3 @@
-" vi:syntax=vim
-
 set nocompatible
 set directory^=$HOME/.vim/tmp//
 set encoding=utf-8
@@ -178,6 +176,7 @@ call plug#begin('~/.vim/plugged')
 	Plug '~/Desktop/jummidark.vim'
   Plug 'hail2u/vim-css3-syntax'
   Plug 'cakebaker/scss-syntax.vim'
+	Plug 'AndrewRadev/tagalong.vim'
 
   " Plugins which only work with neovim are called in here
   if has('nvim')
@@ -265,4 +264,5 @@ colorscheme jummidark
   highlight CocCodeLens ctermfg=8 guifg=8
 " End CoC settings }}}
 
+" vi:syntax=vim
 " ex: set noexpandtab nolist foldmethod=marker:
