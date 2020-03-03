@@ -177,7 +177,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'hail2u/vim-css3-syntax'
   Plug 'cakebaker/scss-syntax.vim'
 	Plug 'AndrewRadev/tagalong.vim'
-
+  " Plug 'chrisbra/Colorizer'
   " Plugins which only work with neovim are called in here
   if has('nvim')
     " Code completion. See github.com/neoclide/coc.nvim/wiki/ for usage help {{{
@@ -227,7 +227,9 @@ set statusline+=%=
   " Current filetype
   set statusline+=%y
   " Current line number,column number
-  set statusline+=%0*\ %l,%2c\ %3p%%\ 
+  " set statusline+=%0*\ %l,%2c\ %3p%%\ 
+  " Current percentage through the file
+  set statusline+=%3p%%\ 
 " End Statusline Config }}}
 
 colorscheme jummidark
