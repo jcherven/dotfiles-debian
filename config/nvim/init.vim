@@ -2,7 +2,7 @@ set nocompatible
 set directory^=$HOME/.vim/tmp//
 set encoding=utf-8
 set fileformats=unix,dos,mac
-" set textwidth=80
+"set textwidth=80
 "set t_Co=256
 set lazyredraw
 set clipboard=unnamed
@@ -179,6 +179,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'cakebaker/scss-syntax.vim'
 	Plug 'AndrewRadev/tagalong.vim'
   Plug 'chrisbra/Colorizer'
+	Plug 'maxbrunsfeld/vim-emacs-bindings'
   " Plugins which only work with neovim are called in here
   if has('nvim')
     " Code completion. See github.com/neoclide/coc.nvim/wiki/ for usage help {{{
@@ -197,7 +198,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'iamcco/coc-spell-checker', {'do': 'yarn install --frozen-lockfile'}
     " }}}
     " Plug 'jcherven/vim-fromtermcolors'
-    Plug '~/Desktop/vim-fromtermcolors'
+    " Plug '~/Desktop/vim-fromtermcolors'
   endif
 call plug#end()
 
@@ -233,12 +234,11 @@ set statusline+=%=
   set statusline+=%3p%%\ 
 " End Statusline Config }}}
 
-colorscheme jummidark
-" if PlugLoaded('vim-fromtermcolors')
-"   colorscheme fromtermcolors
-" else
-"   colorscheme default
-" endif
+if PlugLoaded('vim-fromtermcolors')
+  colorscheme fromtermcolors
+else
+  colorscheme jummidark
+endif
 
 " Settings needed for the CoC code completion plugin {{{
   set hidden
@@ -267,5 +267,4 @@ colorscheme jummidark
   highlight CocCodeLens ctermfg=8 guifg=8
 " End CoC settings }}}
 
-" vi:syntax=vim
 " ex: set noexpandtab nolist foldmethod=marker:
