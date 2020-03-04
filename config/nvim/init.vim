@@ -122,8 +122,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
   Plug 'bronson/vim-trailing-whitespace'
-  Plug 'easymotion/vim-easymotion'
-    map m <plug>(easymotion-prefix)
+  " Plug 'easymotion/vim-easymotion'
+  "   map m <plug>(easymotion-prefix)
   Plug 'wesq3/vim-windowswap'
   Plug 'yuttie/comfortable-motion.vim'
   Plug 'djoshea/vim-autoread'
@@ -179,7 +179,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'cakebaker/scss-syntax.vim'
 	Plug 'AndrewRadev/tagalong.vim'
   Plug 'chrisbra/Colorizer'
-	Plug 'maxbrunsfeld/vim-emacs-bindings'
   " Plugins which only work with neovim are called in here
   if has('nvim')
     " Code completion. See github.com/neoclide/coc.nvim/wiki/ for usage help {{{
