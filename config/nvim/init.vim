@@ -267,4 +267,4 @@ endif
   highlight CocCodeLens ctermfg=8 guifg=8
 " End CoC settings }}}
 
-" ex: set noexpandtab nolist foldmethod=marker:
+" ex: set foldmethod=marker:
