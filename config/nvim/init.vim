@@ -8,6 +8,7 @@ set lazyredraw
 set clipboard=unnamed
 set backspace=indent,eol,start
 set showtabline=2
+set colorcolumn=80
 set noshowmode
 set autoread
 set showmatch
@@ -62,7 +63,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'jeffKreeftmeijer/vim-numbertoggle'
   Plug 'gcmt/taboo.vim'
     let g:taboo_modified_tab_flag="[+]"
-    let g:taboo_tab_format="| %N:%P%m | "
+    let g:taboo_tab_format="▏%N:%P%m▕"
   Plug 'tpope/vim-fugitive'
   Plug 'dense-analysis/ale' "{{{
     let g:ale_fix_on_save=1
@@ -177,7 +178,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'hail2u/vim-css3-syntax'
   Plug 'cakebaker/scss-syntax.vim'
 	Plug 'AndrewRadev/tagalong.vim'
-  " Plug 'chrisbra/Colorizer'
+  Plug 'chrisbra/Colorizer'
   " Plugins which only work with neovim are called in here
   if has('nvim')
     " Code completion. See github.com/neoclide/coc.nvim/wiki/ for usage help {{{
