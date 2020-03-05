@@ -40,8 +40,8 @@ set splitbelow
 set splitright
 "set background=dark
 
-" General Keybindings
-map <SPACE> <leader>
+" Keybindings
+" map <SPACE> <Leader>
 nnoremap <C-J> <C-w><C-J>
 nnoremap <C-K> <C-w><C-K>
 nnoremap <C-L> <C-w><C-L>
