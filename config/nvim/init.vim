@@ -38,6 +38,7 @@ set cursorline
 set scrolloff=8
 set splitbelow
 set splitright
+set foldmethod=marker
 "set background=dark
 
 " Keybindings
@@ -65,29 +66,31 @@ call plug#begin('~/.vim/plugged')
     let g:taboo_modified_tab_flag="[+]"
     let g:taboo_tab_format="▏%N:%P%m▕"
   Plug 'tpope/vim-fugitive'
-  Plug 'dense-analysis/ale' "{{{
-    let g:ale_fix_on_save=1
-    let g:ale_linters_explicit=1
-    let g:ale_javascript_prettier_options='--single-quote'
-    let g:ale_linters={
-          \ 'vim': ['prettier'],
-          \ 'javascript': ['prettier'],
-          \ 'css': ['prettier'],
-          \ 'sass': ['prettier'],
-          \ 'html': ['prettier'],
-          \ 'json': ['prettier'],
-          \ 'markdown': ['prettier']
-    \}
-    let g:ale_fixers={
-	  \ 'vim': ['prettier'],
-          \ 'javascript': ['prettier'],
-          \ 'css': ['prettier'],
-          \ 'sass': ['prettier'],
-          \ 'html': ['prettier'],
-          \ 'json': ['prettier'],
-          \ 'markdown': ['prettier']
-    \}
-    "}}}
+  "Plug 'dense-analysis/ale' "{{{
+  "  let g:ale_fix_on_save=1
+  "  let g:ale_linters_explicit=1
+  "  let g:ale_javascript_prettier_options='--single-quote'
+  "  let g:ale_linters={
+  "        \ 'vim': ['prettier'],
+  "        \ 'javascript': ['prettier'],
+  "        \ 'javascriptreact': ['prettier'],
+  "        \ 'css': ['prettier'],
+  "        \ 'sass': ['prettier'],
+  "        \ 'html': ['prettier'],
+  "        \ 'json': ['prettier'],
+  "        \ 'markdown': ['prettier']
+  "  \}
+  "  let g:ale_fixers={
+	        "\ 'vim': ['prettier'],
+  "        \ 'javascript': ['prettier'],
+  "        \ 'javascriptreact': ['prettier'],
+  "        \ 'css': ['prettier'],
+  "        \ 'sass': ['prettier'],
+  "        \ 'html': ['prettier'],
+  "        \ 'json': ['prettier'],
+  "        \ 'markdown': ['prettier']
+  "  \}
+  "  "}}}
   Plug 'scrooloose/nerdtree' "{{{
     " Function for smart NERDTree toggle behavior.
     " Call on the NERDTree toggle keybinding.
@@ -193,8 +196,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
     Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
     Plug 'fannheyward/coc-markdownlint', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'weirongxu/coc-explorer', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'iamcco/coc-spell-checker', {'do': 'yarn install --frozen-lockfile'}
     " }}}
     " Plug 'jcherven/vim-fromtermcolors'
     " Plug '~/Desktop/vim-fromtermcolors'
@@ -248,6 +249,8 @@ endif
   set cmdheight=2
   set shortmess+=c
   set signcolumn=no
+  " Adds a command :Prettier
+  command! -nargs=0 Prettier :CocCommand prettier.formatFile
   " Use tab for trigger completion with characters ahead and navigate.
   " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
   inoremap <silent><expr> <TAB>
@@ -266,4 +269,3 @@ endif
   highlight CocCodeLens ctermfg=8 guifg=8
 " End CoC settings }}}
 
-" ex: set foldmethod=marker:
