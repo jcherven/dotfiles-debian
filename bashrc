@@ -96,12 +96,14 @@ elif [[ "$OSTYPE" == "darwin"*  ]]; then
   fi
 fi #}}}
 
-# For the Berkeley CS61a course's autograder
-alias ok="python3 ok --local"
+# For locally defined aliases that don't need to be included in this config
+# ALIASFILE= "$HOME/.bash_aliases"
+if [ -f ~/.bash_aliases ]; then
+   . ~/.bash_aliases
+ else
+   echo "# Local aliases that dont belong in the dotfiles can be defined here" > ~/.bash_aliases
+fi
 
-# For doing quiet ssh
-# sssh -p <port> <host@hostname> bash -i
-alias sssh="ssh -4 -C -T -o UserKnownHostsFile=/dev/null"
 # end Aliases
 
 # Highlighted man page output in linux and macos {{{
