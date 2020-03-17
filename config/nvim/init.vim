@@ -8,7 +8,7 @@ set lazyredraw
 set clipboard=unnamed
 set backspace=indent,eol,start
 set showtabline=2
-set colorcolumn=80
+" set colorcolumn=80
 set noshowmode
 set autoread
 set showmatch
@@ -41,6 +41,9 @@ set splitright
 set foldmethod=marker
 "set background=dark
 
+" Filetype specific settings
+autocmd FileType markdown setlocal colorcolumn=80
+
 " Keybindings
 " map <SPACE> <Leader>
 nnoremap <C-J> <C-w><C-J>
@@ -66,31 +69,31 @@ call plug#begin('~/.vim/plugged')
     let g:taboo_modified_tab_flag="[+]"
     let g:taboo_tab_format="▏%N:%P%m▕"
   Plug 'tpope/vim-fugitive'
-  "Plug 'dense-analysis/ale' "{{{
-  "  let g:ale_fix_on_save=1
-  "  let g:ale_linters_explicit=1
-  "  let g:ale_javascript_prettier_options='--single-quote'
-  "  let g:ale_linters={
-  "        \ 'vim': ['prettier'],
-  "        \ 'javascript': ['prettier'],
-  "        \ 'javascriptreact': ['prettier'],
-  "        \ 'css': ['prettier'],
-  "        \ 'sass': ['prettier'],
-  "        \ 'html': ['prettier'],
-  "        \ 'json': ['prettier'],
-  "        \ 'markdown': ['prettier']
-  "  \}
-  "  let g:ale_fixers={
-	        "\ 'vim': ['prettier'],
-  "        \ 'javascript': ['prettier'],
-  "        \ 'javascriptreact': ['prettier'],
-  "        \ 'css': ['prettier'],
-  "        \ 'sass': ['prettier'],
-  "        \ 'html': ['prettier'],
-  "        \ 'json': ['prettier'],
-  "        \ 'markdown': ['prettier']
-  "  \}
-  "  "}}}
+  Plug 'dense-analysis/ale' "{{{
+    let g:ale_fix_on_save=1
+    let g:ale_linters_explicit=1
+    let g:ale_javascript_prettier_options='--single-quote'
+    let g:ale_linters={
+          \ 'vim': ['prettier'],
+          \ 'javascript': ['prettier'],
+          \ 'javascriptreact': ['prettier'],
+          \ 'css': ['prettier'],
+          \ 'sass': ['prettier'],
+          \ 'html': ['prettier'],
+          \ 'json': ['prettier'],
+          \ 'markdown': ['prettier']
+    \}
+    let g:ale_fixers={
+	        \ 'vim': ['prettier'],
+          \ 'javascript': ['prettier'],
+          \ 'javascriptreact': ['prettier'],
+          \ 'css': ['prettier'],
+          \ 'sass': ['prettier'],
+          \ 'html': ['prettier'],
+          \ 'json': ['prettier'],
+          \ 'markdown': ['prettier']
+    \}
+    "}}}
   Plug 'scrooloose/nerdtree' "{{{
     " Function for smart NERDTree toggle behavior.
     " Call on the NERDTree toggle keybinding.
