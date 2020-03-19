@@ -194,16 +194,15 @@ call plug#begin('~/.vim/plugged')
       Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
       Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
       Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-      Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
       Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
       Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
       Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
       Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
       Plug 'fannheyward/coc-markdownlint', {'do': 'yarn install --frozen-lockfile'}
-      let g:markdown_fenced_languages = [
-            \ 'vim',
-            \ 'help'
-            \]
+        let g:markdown_fenced_languages = [
+              \ 'vim',
+              \ 'help'
+              \]
       Plug 'weirongxu/coc-explorer', {'do': 'yarn install --frozen-lockfile'}
       Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
       " nvim settings required for CoC
@@ -277,4 +276,3 @@ if PlugLoaded('vim-fromtermcolors')
 else
   colorscheme jummidark
 endif
-
