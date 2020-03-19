@@ -188,17 +188,52 @@ call plug#begin('~/.vim/plugged')
   " Plugins which only work with neovim are called in here
   if has('nvim')
     " Code completion. See github.com/neoclide/coc.nvim/wiki/ for usage help {{{
-    Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'fannheyward/coc-markdownlint', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'neoclide/coc.nvim'
+    if PlugLoaded('coc.nvim')
+      Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+      Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+      Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
+      Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+      Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+      Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+      Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
+      Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
+      Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
+      Plug 'fannheyward/coc-markdownlint', {'do': 'yarn install --frozen-lockfile'}
+      let g:markdown_fenced_languages = [
+            \ 'vim',
+            \ 'help'
+            \]
+      Plug 'weirongxu/coc-explorer', {'do': 'yarn install --frozen-lockfile'}
+      Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
+      " nvim settings required for CoC
+      set hidden
+      set nobackup
+      set nowritebackup
+      set updatetime=300
+      " These are optional
+      set cmdheight=2
+      set shortmess+=c
+      set signcolumn=no
+      " Adds a command :Prettier
+      command! -nargs=0 Prettier :CocCommand prettier.formatFile
+      " Use tab for trigger completion with characters ahead and navigate.
+      " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+      inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+      inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+      function! s:check_back_space() abort
+        let col = col('.') - 1
+        return !col || getline('.')[col - 1]  =~# '\s'
+      endfunction
+      " Use <c-space> to trigger completion.
+      inoremap <silent><expr> <c-space> coc#refresh()
+      " Highlight symbol under cursor on CursorHold
+      autocmd CursorHold * silent call CocActionAsync('highlight')
+      highlight CocCodeLens ctermfg=8 guifg=8
+    endif
     " }}}
     " Plug 'jcherven/vim-fromtermcolors'
     " Plug '~/Desktop/vim-fromtermcolors'
@@ -242,35 +277,4 @@ if PlugLoaded('vim-fromtermcolors')
 else
   colorscheme jummidark
 endif
-
-" Settings needed for the CoC code completion plugin {{{
-if PlugLoaded('coc.vim')
-  set hidden
-  set nobackup
-  set nowritebackup
-  set updatetime=300
-  " These are optional
-  set cmdheight=2
-  set shortmess+=c
-  set signcolumn=no
-  " Adds a command :Prettier
-  command! -nargs=0 Prettier :CocCommand prettier.formatFile
-  " Use tab for trigger completion with characters ahead and navigate.
-  " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-  inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
-  inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-  function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-  endfunction
-  " Use <c-space> to trigger completion.
-  inoremap <silent><expr> <c-space> coc#refresh()
-  " Highlight symbol under cursor on CursorHold
-  autocmd CursorHold * silent call CocActionAsync('highlight')
-  highlight CocCodeLens ctermfg=8 guifg=8
-endif
-" End CoC settings }}}
 
