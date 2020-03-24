@@ -180,11 +180,15 @@ call plug#begin('~/.vim/plugged')
 	Plug '~/Desktop/vim-jummiterm'
 	Plug 'kamykn/dark-theme.vim'
 	Plug 'smallwat3r/vim-efficient'
-	Plug '~/Desktop/jummidark.vim'
   Plug 'hail2u/vim-css3-syntax'
   Plug 'cakebaker/scss-syntax.vim'
 	Plug 'AndrewRadev/tagalong.vim'
   Plug 'chrisbra/Colorizer'
+  if isdirectory('~/Desktop/jummidark.vim')
+    Plug '~/Desktop/jummidark.vim'
+  else
+    Plug 'jcherven/jummidark.vim'
+  endif
   " Plugins which only work with neovim are called in here
   if has('nvim')
     " Code completion. See github.com/neoclide/coc.nvim/wiki/ for usage help {{{
