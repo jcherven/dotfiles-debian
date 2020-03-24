@@ -1182,7 +1182,7 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-1434 209 1432 702 -2560 202 2560 1418 </string>
+	<string>-1280 918 1278 702 -2560 202 2560 1418 </string>
 	<key>NeverWarnAboutMeta</key>
 	<true/>
 	<key>NeverWarnAboutMeta_selection</key>
@@ -2051,6 +2051,8 @@
 			<key>Use Bright Bold</key>
 			<true/>
 			<key>Use Cursor Guide</key>
+			<false/>
+			<key>Use Custom Window Title</key>
 			<false/>
 			<key>Use Italic Font</key>
 			<true/>
@@ -4707,6 +4709,7 @@
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
+		<string>Helvetica</string>
 		<string>SF Mono</string>
 	</array>
 	<key>NoSyncFrame_SharedPreferences</key>
@@ -4714,12 +4717,12 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1440, 900}}</string>
 		<key>topLeft</key>
-		<string>{190, 783}</string>
+		<string>{189, 783}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
 	<string>DF74BC26-A6D6-4FDF-B164-2273FFE31B8E</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>52</integer>
+	<integer>56</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
 	<real>596305608.18408501</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
