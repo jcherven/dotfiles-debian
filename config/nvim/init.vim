@@ -42,12 +42,13 @@ autocmd FileType markdown setlocal colorcolumn=80
 
 " Keybindings
 " map <SPACE> <Leader>
+nnoremap <space> :
 map ; <Leader>
+let mapleader = ";"
 nnoremap <C-J> <C-w><C-J>
 nnoremap <C-K> <C-w><C-K>
 nnoremap <C-L> <C-w><C-L>
 nnoremap <C-H> <C-w><C-H>
-nnoremap <space> :
 set mouse=a
 
 " Use in a conditional statement to check if a plugin is installed
@@ -108,8 +109,7 @@ call plug#begin('~/.vim/plugged')
     endfunction
     autocmd StdinReadPre * let s:std_in=1
     autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-    " The underscore maps to / for some reason
-    map <C-_> :call NERDTreeFindToggle()<CR>
+    map <leader>/ :call NERDTreeFindToggle()<CR>
     let g:NERDTreeMapJumpParent = "h"
     let g:NERDTreeMapActivateNode = "l"
     let NERDTreeMinimalUI=1
@@ -129,7 +129,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'bronson/vim-trailing-whitespace'
   Plug 'easymotion/vim-easymotion'
     map m <plug>(easymotion-prefix)
-  Plug 'wesq3/vim-windowswap'
   Plug 'yuttie/comfortable-motion.vim'
   Plug 'djoshea/vim-autoread'
   Plug 'alvan/vim-closetag' " {{{
