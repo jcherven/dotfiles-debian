@@ -2,13 +2,10 @@ set nocompatible
 set directory^=$HOME/.vim/tmp//
 set encoding=utf-8
 set fileformats=unix,dos,mac
-"set textwidth=80
-"set t_Co=256
 set lazyredraw
 set clipboard=unnamed
 set backspace=indent,eol,start
 set showtabline=2
-" set colorcolumn=80
 set noshowmode
 set autoread
 set showmatch
@@ -39,13 +36,13 @@ set scrolloff=8
 set splitbelow
 set splitright
 set foldmethod=marker
-"set background=dark
 
 " Filetype specific settings
 autocmd FileType markdown setlocal colorcolumn=80
 
 " Keybindings
 " map <SPACE> <Leader>
+map ; <Leader>
 nnoremap <C-J> <C-w><C-J>
 nnoremap <C-K> <C-w><C-K>
 nnoremap <C-L> <C-w><C-L>
@@ -63,12 +60,14 @@ function PlugLoaded(name)
 endfunction
 
 call plug#begin('~/.vim/plugged')
+  Plug 'junegunn/vim-plug'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'jeffKreeftmeijer/vim-numbertoggle'
   Plug 'gcmt/taboo.vim'
     let g:taboo_modified_tab_flag="[+]"
     let g:taboo_tab_format="▏%N:%P%m▕"
   Plug 'tpope/vim-fugitive'
+  Plug 'sheerun/vim-polyglot'
   Plug 'dense-analysis/ale' "{{{
     let g:ale_fix_on_save=1
     let g:ale_linters_explicit=1
@@ -128,37 +127,24 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
   Plug 'bronson/vim-trailing-whitespace'
-  " Plug 'easymotion/vim-easymotion'
-  "   map m <plug>(easymotion-prefix)
+  Plug 'easymotion/vim-easymotion'
+    map m <plug>(easymotion-prefix)
   Plug 'wesq3/vim-windowswap'
   Plug 'yuttie/comfortable-motion.vim'
   Plug 'djoshea/vim-autoread'
-  Plug 'jiangmiao/auto-pairs'
-  Plug 'sheerun/vim-polyglot'
-  Plug 'mattn/emmet-vim'
-    let g:user_emmet_leader_key=','
   Plug 'alvan/vim-closetag' " {{{
-    " filenames like *.xml, *.html, *.xhtml, ...
-    " These are the file extensions where this plugin is enabled.
-    let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
-    " filenames like *.xml, *.xhtml, ...
-    " This will make the list of non-closing tags self-closing in the specified files.
-    let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
     " filetypes like xml, html, xhtml, ...
     " These are the file types where this plugin is enabled.
-    let g:closetag_filetypes = 'html,xhtml,phtml,javascript'
-    " filetypes like xml, xhtml, ...
-    " This will make the list of non-closing tags self-closing in the specified files.
-    let g:closetag_xhtml_filetypes = 'xhtml,jsx,javascript'
+    let g:closetag_filetypes = 'html,xhtml,phtml,javascript,javascriptreact'
     " integer value [0|1]
     " This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
     let g:closetag_emptyTags_caseSensitive = 1
     " dict
     " Disables auto-close if not in a "valid" region (based on filetype)
     let g:closetag_regions = {
-	\ 'typescript.tsx': 'jsxRegion,tsxRegion',
-	\ 'javascript.jsx': 'jsxRegion',
-	\ }
+      \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+      \ 'javascript.jsx': 'jsxRegion',
+      \ }
     " Shortcut for closing tags, default is '>'
     let g:closetag_shortcut = '>'
     " Add > at current position without closing the current tag, default is ''
@@ -177,18 +163,18 @@ call plug#begin('~/.vim/plugged')
     autocmd BufEnter * call <SID>AutoProjectRootCD()
   "}}}
   Plug 'lifepillar/vim-colortemplate'
-	Plug '~/Desktop/vim-jummiterm'
-	Plug 'kamykn/dark-theme.vim'
-	Plug 'smallwat3r/vim-efficient'
-  Plug 'hail2u/vim-css3-syntax'
-  Plug 'cakebaker/scss-syntax.vim'
-	Plug 'AndrewRadev/tagalong.vim'
+	" Plug 'kamykn/dark-theme.vim'
   Plug 'chrisbra/Colorizer'
-  if isdirectory('~/Desktop/jummidark.vim')
-    Plug '~/Desktop/jummidark.vim'
-  else
-    Plug 'jcherven/jummidark.vim'
-  endif
+  Plug '~/Desktop/jummidark.vim'
+  " Conditionally load these on markup files
+  Plug 'hail2u/vim-css3-syntax', { 'for': ['html', 'javascript', 'javascriptreact', 'xml', 'css', 'scss'] }
+  Plug 'cakebaker/scss-syntax.vim', { 'for': ['html', 'javascript', 'javascriptreact', 'xml', 'css', 'scss'] }
+  Plug 'AndrewRadev/tagalong.vim', { 'for': ['html', 'javascript', 'javascriptreact', 'xml', 'css', 'scss'] }
+  Plug 'jiangmiao/auto-pairs', { 'for': ['html', 'javascript', 'javascriptreact', 'xml', 'css', 'scss'] }
+  Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascriptreact', 'xml', 'css', 'scss'] }
+    if PlugLoaded('emmet-vim')
+      let g:user_emmet_leader_key=','
+    endif
   " Plugins which only work with neovim are called in here
   if has('nvim')
     " Code completion. See github.com/neoclide/coc.nvim/wiki/ for usage help {{{
@@ -207,7 +193,7 @@ call plug#begin('~/.vim/plugged')
             \ 'help'
             \]
     Plug 'weirongxu/coc-explorer', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
+    " Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
     " }}}
     " Plug 'jcherven/vim-fromtermcolors'
     " Plug '~/Desktop/vim-fromtermcolors'
