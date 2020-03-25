@@ -241,7 +241,7 @@ set updatetime=300
 set cmdheight=2
 set shortmess+=c
 set signcolumn=no
-highlight CocCodeLens ctermfg=8 guifg=8
+highlight CocCodeLens ctermfg=8 guifg=#4e4e4e
 " Adds a command :Prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " Use tab for trigger completion with characters ahead and navigate.
@@ -260,6 +260,29 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " }}}
+
+" GUI vim (macvim, gvim, etc) Settings
+if has('gui')
+  set belloff=all
+  set guifont=Iosevka\ Term:h13
+  set guicursor+=a:blinkon0
+  set linespace=-1
+  set lines=45 columns=84
+  " Displays the statusline when there is no split
+  set laststatus=2
+  " Start gvim without menubar or toolbar
+  " L - Left hand scrollbar is present when there is a vertically split window
+  " a - auto select for system copy/paste
+  " c - Use console dialogs instead of system popups
+  set guioptions="ac"
+  " Enable the visual completion menu for the command line {{{
+  source $VIMRUNTIME/menu.vim
+  set wildmenu
+  set cpo-=<
+  set wcm=<C-Z>
+  map <F4> :emenu <C-Z>
+  " }}}
+endif
 
 if PlugLoaded('vim-fromtermcolors')
   colorscheme fromtermcolors
