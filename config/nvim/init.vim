@@ -129,7 +129,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'bronson/vim-trailing-whitespace'
   " Easymotion - <leader><plug><movement>
   Plug 'easymotion/vim-easymotion'
-    map e <plug>(easymotion-prefix)
+    map m <plug>(easymotion-prefix)
   Plug 'yuttie/comfortable-motion.vim'
   Plug 'djoshea/vim-autoread'
   Plug 'alvan/vim-closetag' " {{{
