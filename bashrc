@@ -121,7 +121,7 @@ man() {
 } #}}}
 
 # Git completion for branch names, subcommands, and more
-GITCOMPLETION="$HOME/dotfiles/git-completion.bash"
+GITCOMPLETION="$HOME/dotfiles/bash_completion/git-completion.bash"
 if [ -f "$GITCOMPLETION" ]; then
   source "$GITCOMPLETION"
 fi
