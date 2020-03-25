@@ -261,20 +261,20 @@ inoremap <silent><expr> <c-space> coc#refresh()
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " }}}
 
-" GUI vim (macvim, gvim, etc) Settings
+" GUI vim (macvim, gvim, etc) Settings {{{
 if has('gui')
   set belloff=all
-  set guifont=Iosevka\ Term:h13
+  set guifont=Iosevka\ Term:h14
   set guicursor+=a:blinkon0
   set linespace=-1
   set lines=45 columns=84
   " Displays the statusline when there is no split
   set laststatus=2
-  " Start gvim without menubar or toolbar
-  " L - Left hand scrollbar is present when there is a vertically split window
+  " Start without menubar or toolbar {{{
   " a - auto select for system copy/paste
   " c - Use console dialogs instead of system popups
   set guioptions="ac"
+  " }}}
   " Enable the visual completion menu for the command line {{{
   source $VIMRUNTIME/menu.vim
   set wildmenu
@@ -283,6 +283,7 @@ if has('gui')
   map <F4> :emenu <C-Z>
   " }}}
 endif
+" }}}
 
 if PlugLoaded('vim-fromtermcolors')
   colorscheme fromtermcolors
