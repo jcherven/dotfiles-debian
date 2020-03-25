@@ -175,29 +175,27 @@ call plug#begin('~/.vim/plugged')
     if PlugLoaded('emmet-vim')
       let g:user_emmet_leader_key=','
     endif
+  " Code completion. See github.com/neoclide/coc.nvim/wiki/ for usage help {{{
+  Plug 'neoclide/coc.nvim'
+  Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'fannheyward/coc-markdownlint', {'do': 'yarn install --frozen-lockfile'}
+    let g:markdown_fenced_languages = [
+          \ 'vim',
+          \ 'help'
+          \]
+  Plug 'weirongxu/coc-explorer', {'do': 'yarn install --frozen-lockfile'}
+  " Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
+  " }}}
   " Plugins which only work with neovim are called in here
-  if has('nvim')
-    " Code completion. See github.com/neoclide/coc.nvim/wiki/ for usage help {{{
-    Plug 'neoclide/coc.nvim'
-    Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-highlight', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
-    Plug 'fannheyward/coc-markdownlint', {'do': 'yarn install --frozen-lockfile'}
-      let g:markdown_fenced_languages = [
-            \ 'vim',
-            \ 'help'
-            \]
-    Plug 'weirongxu/coc-explorer', {'do': 'yarn install --frozen-lockfile'}
-    " Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
-    " }}}
     " Plug 'jcherven/vim-fromtermcolors'
     " Plug '~/Desktop/vim-fromtermcolors'
-  endif
 call plug#end()
 
 " Statusline Configuration {{{
