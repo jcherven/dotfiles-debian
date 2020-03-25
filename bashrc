@@ -102,6 +102,8 @@ if [ -f ~/.bash_aliases ]; then
    . ~/.bash_aliases
  else
    echo "# Local aliases that dont belong in the dotfiles can be defined here" > ~/.bash_aliases
+   echo "A local aliases file has been created at ~/.bash_aliases."
+   echo "Define any aliases you only need on this computer in there."
 fi
 
 # end Aliases
