@@ -1134,6 +1134,8 @@
 	<true/>
 	<key>MaxVertically</key>
 	<false/>
+	<key>MetalSlowFrameRate</key>
+	<real>45</real>
 	<key>NSNavLastRootDirectory</key>
 	<string>~</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
@@ -1182,7 +1184,7 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-1280 918 1278 702 -2560 202 2560 1418 </string>
+	<string>-1254 202 1250 1418 -2560 202 2560 1418 </string>
 	<key>NeverWarnAboutMeta</key>
 	<true/>
 	<key>NeverWarnAboutMeta_selection</key>
@@ -4715,14 +4717,14 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1440, 900}}</string>
+		<string>{{-2560, 202}, {2560, 1440}}</string>
 		<key>topLeft</key>
-		<string>{189, 783}</string>
+		<string>{-1917, 1229}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
 	<string>DF74BC26-A6D6-4FDF-B164-2273FFE31B8E</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>56</integer>
+	<integer>59</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
 	<real>596305608.18408501</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
@@ -5506,6 +5508,8 @@
 	<true/>
 	<key>ShowPaneTitles</key>
 	<false/>
+	<key>SlowFrameRate</key>
+	<real>30</real>
 	<key>SmartPlacement</key>
 	<true/>
 	<key>SoundForEsc</key>
@@ -5527,7 +5531,7 @@
 	<key>TerminalMargin</key>
 	<integer>16</integer>
 	<key>TerminalVMargin</key>
-	<integer>16</integer>
+	<integer>14</integer>
 	<key>ToolbeltTools</key>
 	<array>
 		<string>Recent Directories</string>

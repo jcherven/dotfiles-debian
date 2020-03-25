@@ -6,7 +6,7 @@ set lazyredraw
 set clipboard=unnamed
 set backspace=indent,eol,start
 set showtabline=2
-set noshowmode
+" set noshowmode
 set autoread
 set showmatch
 set incsearch
@@ -127,8 +127,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-commentary'
   Plug 'bronson/vim-trailing-whitespace'
+  " Easymotion - <leader><plug><movement>
   Plug 'easymotion/vim-easymotion'
-    map m <plug>(easymotion-prefix)
+    map e <plug>(easymotion-prefix)
   Plug 'yuttie/comfortable-motion.vim'
   Plug 'djoshea/vim-autoread'
   Plug 'alvan/vim-closetag' " {{{
