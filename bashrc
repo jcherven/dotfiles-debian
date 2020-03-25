@@ -31,7 +31,7 @@ fi
 
 # Prompt configuration {{{
 # Git prompt script needs to be manually updated every so often from https://github.com/git/git/tree/contrib/completion
-GITPROMPT="$HOME/dotfiles/git-prompt.sh"
+GITPROMPT="$HOME/dotfiles/bash_completion/git-prompt.sh"
 if [ -f  "$GITPROMPT" ]; then
   source "$GITPROMPT"
   export GIT_PS1_SHOWDIRTYSTATE=1
