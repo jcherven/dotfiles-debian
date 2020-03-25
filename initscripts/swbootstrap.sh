@@ -60,8 +60,15 @@ FORMULAE=(
 
 # Listing of Brew Cask Fonts
 CASKFONTS=(
+  "font-charter"
+  "font-cooper-hewitt"
+  "font-fira-sans"
+  "font-ibm-plex"
   "font-iosevka"
   "font-iosevka-slab"
+  "font-source-code-pro"
+  "font-source-sans-pro"
+  "font-source-serif-pro"
   "font-terminus"
 )
 
