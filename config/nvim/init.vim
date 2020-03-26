@@ -55,9 +55,9 @@ set mouse=a
 " if PlugLoaded('plugin-name') do something endif
 function PlugLoaded(name)
   return (
-        \ has_key(g:plugs, a:name) &&
-        \ isdirectory(g:plugs[a:name].dir) &&
-        \ stridx(&rtp, g:plugs[a:name].dir >= 0))
+    \ has_key(g:plugs, a:name) &&
+    \ isdirectory(g:plugs[a:name].dir) &&
+    \ stridx(&rtp, g:plugs[a:name].dir >= 0))
 endfunction
 
 call plug#begin('~/.vim/plugged')
@@ -67,6 +67,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'gcmt/taboo.vim'
     let g:taboo_modified_tab_flag="[+]"
     let g:taboo_tab_format="▏%N:%P%m▕"
+    let g:taboo_renamed_tab_format="▏%N:%l%m▕"
   Plug 'tpope/vim-fugitive'
   Plug 'sheerun/vim-polyglot'
   Plug 'dense-analysis/ale' "{{{
@@ -130,7 +131,8 @@ call plug#begin('~/.vim/plugged')
   " Easymotion - <leader><plug><movement>
   Plug 'easymotion/vim-easymotion'
     map m <plug>(easymotion-prefix)
-  Plug 'yuttie/comfortable-motion.vim'
+  " Plug 'yuttie/comfortable-motion.vim'
+  Plug 'psliwka/vim-smoothie'
   Plug 'djoshea/vim-autoread'
   Plug 'alvan/vim-closetag' " {{{
     " filetypes like xml, html, xhtml, ...
@@ -270,18 +272,16 @@ if has('gui')
   set lines=45 columns=84
   " Displays the statusline when there is no split
   set laststatus=2
-  " Start without menubar or toolbar {{{
+  " Start without menubar or toolbar
   " a - auto select for system copy/paste
   " c - Use console dialogs instead of system popups
   set guioptions="ac"
-  " }}}
-  " Enable the visual completion menu for the command line {{{
+  " Enable the visual completion menu for the command line
   source $VIMRUNTIME/menu.vim
   set wildmenu
   set cpo-=<
   set wcm=<C-Z>
   map <F4> :emenu <C-Z>
-  " }}}
 endif
 " }}}
 
