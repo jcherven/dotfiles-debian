@@ -61,6 +61,7 @@ endfunction
 
 call plug#begin('~/.vim/plugged')
   Plug 'junegunn/vim-plug'
+  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'jeffKreeftmeijer/vim-numbertoggle'
   Plug 'gcmt/taboo.vim'
