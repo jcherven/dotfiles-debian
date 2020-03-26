@@ -165,11 +165,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'chrisbra/Colorizer'
   Plug '~/Desktop/jummidark.vim'
   " Conditionally load these on markup files
-  Plug 'hail2u/vim-css3-syntax', { 'for': ['html', 'javascript', 'javascriptreact', 'xml', 'css', 'scss'] }
-  Plug 'cakebaker/scss-syntax.vim', { 'for': ['html', 'javascript', 'javascriptreact', 'xml', 'css', 'scss'] }
-  Plug 'AndrewRadev/tagalong.vim', { 'for': ['html', 'javascript', 'javascriptreact', 'xml', 'css', 'scss'] }
-  Plug 'jiangmiao/auto-pairs', { 'for': ['html', 'javascript', 'javascriptreact', 'xml', 'css', 'scss'] }
-  Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascriptreact', 'xml', 'css', 'scss'] }
+  let markupFiles = ['html', 'javascript', 'javascriptreact', 'xml', 'css', 'scss']
+  Plug 'hail2u/vim-css3-syntax', { 'for': markupFiles }
+  Plug 'cakebaker/scss-syntax.vim', { 'for': markupFiles }
+  Plug 'AndrewRadev/tagalong.vim', { 'for': markupFiles }
+  Plug 'jiangmiao/auto-pairs', { 'for': markupFiles }
+  Plug 'mattn/emmet-vim', { 'for': markupFiles }
     if PlugLoaded('emmet-vim')
       let g:user_emmet_leader_key=','
     endif
