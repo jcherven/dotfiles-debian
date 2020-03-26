@@ -41,7 +41,6 @@ set foldmethod=marker
 autocmd FileType markdown setlocal colorcolumn=80
 
 " Keybindings
-" map <SPACE> <Leader>
 nnoremap <space> :
 map ; <Leader>
 let mapleader = ";"
@@ -131,7 +130,6 @@ call plug#begin('~/.vim/plugged')
   " Easymotion - <leader><plug><movement>
   Plug 'easymotion/vim-easymotion'
     map m <plug>(easymotion-prefix)
-  " Plug 'yuttie/comfortable-motion.vim'
   Plug 'psliwka/vim-smoothie'
   Plug 'djoshea/vim-autoread'
   Plug 'alvan/vim-closetag' " {{{
@@ -164,8 +162,6 @@ call plug#begin('~/.vim/plugged')
 
     autocmd BufEnter * call <SID>AutoProjectRootCD()
   "}}}
-  Plug 'lifepillar/vim-colortemplate'
-	" Plug 'kamykn/dark-theme.vim'
   Plug 'chrisbra/Colorizer'
   Plug '~/Desktop/jummidark.vim'
   " Conditionally load these on markup files
@@ -195,9 +191,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'weirongxu/coc-explorer', {'do': 'yarn install --frozen-lockfile'}
   " Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
   " }}}
-  " Plugins which only work with neovim are called in here
-    " Plug 'jcherven/vim-fromtermcolors'
-    " Plug '~/Desktop/vim-fromtermcolors'
 call plug#end()
 
 " Statusline Configuration {{{
@@ -232,7 +225,7 @@ set statusline+=%=
   set statusline+=%3p%%\ 
 " End Statusline Config }}}
 
-" nvim settings required for CoC {{{
+" CoC settings for vim/nvim {{{
 " These settings break nvim when placed inside the plug call, keep them
 " separately down here
 set hidden
@@ -285,8 +278,4 @@ if has('gui')
 endif
 " }}}
 
-if PlugLoaded('vim-fromtermcolors')
-  colorscheme fromtermcolors
-else
-  colorscheme jummidark
-endif
+colorscheme jummidark
