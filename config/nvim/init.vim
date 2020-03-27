@@ -67,6 +67,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'jeffKreeftmeijer/vim-numbertoggle'
   Plug 'gcmt/taboo.vim'
+    let g:taboo_tabline=1
     let g:taboo_modified_tab_flag="[+]"
     let g:taboo_tab_format="▏%N:%P%m▕"
     let g:taboo_renamed_tab_format="▏%N:%l%m▕"
@@ -200,19 +201,19 @@ call plug#end()
 " Statusline Configuration {{{
 " Left alignment for the below customizations
 set statusline=
-  set statusline+=\ 
-  " Git status information if using vim-fugitive
-  if PlugLoaded('vim-fugitive')
-    fun! GitInfo()
-      let git = fugitive#head()
-      if git != ''
-        return '( '.git.')'
-      else
-        return ''
-      endif
-    endfunction
-    set statusline+=%{GitInfo()}
-  endif
+  " set statusline+=\ 
+  " " Git status information if using vim-fugitive
+  " if PlugLoaded('vim-fugitive')
+  "   fun! GitInfo()
+  "     let git = fugitive#head()
+  "     if git != ''
+  "       return '( '.git.')'
+  "     else
+  "       return ''
+  "     endif
+  "   endfunction
+  "   set statusline+=%{GitInfo()}
+  " endif
   " Current buffer's file path relative to the git project root
   set statusline+=\ %f
   " Read Only marker
