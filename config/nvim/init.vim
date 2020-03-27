@@ -35,6 +35,8 @@ set cursorline
 set scrolloff=8
 set splitbelow
 set splitright
+set eadirection=both
+set equalalways
 set foldmethod=marker
 
 " Filetype specific settings
