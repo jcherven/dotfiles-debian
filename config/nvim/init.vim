@@ -40,7 +40,7 @@ set equalalways
 set foldmethod=marker
 
 " Filetype specific settings
-autocmd FileType markdown setlocal colorcolumn=80
+autocmd FileType help setlocal colorcolumn=80
 
 " Keybindings
 nnoremap <space> :
@@ -217,8 +217,40 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " Statusline (Builtin) Configuration {{{
+let g:currentmode={
+  \'n' : '正常',
+  \'no' : 'N·Operator Pending',
+  \'v' : 'ビジュアル',
+  \'V' : '行単位',
+  \'^V' : '矩形',
+  \'s' : 'セレクト',
+  \'S': 'S·Line',
+  \'^S' : 'S·Block',
+  \'i' : '挿入',
+  \'R' : '置換',
+  \'Rv' : 'V·Replace',
+  \'c' : 'コマンド',
+  \'cv' : 'Vim Ex',
+  \'ce' : 'Ex',
+  \'r' : 'プロンプト',
+  \'rm' : 'More',
+  \'r?' : '確認',
+  \'!' : 'シェル',
+  \'t' : 'ターミナル'
+  \}
+
+" Get current mode
+function! ModeCurrent() abort
+    let l:modecurrent = mode()
+    let l:modelist = toupper(get(g:currentmode, l:modecurrent, 'V·Block'))
+    let l:current_status_mode = l:modelist
+    return l:current_status_mode
+endfunction
+
 " Left alignment for the below customizations
 set statusline=
+  " Mode
+  set statusline+=%{ModeCurrent()}
   " Current buffer's file path relative to the git project root
   set statusline+=\ %f
   " Read Only marker
