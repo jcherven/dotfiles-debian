@@ -66,12 +66,25 @@ call plug#begin('~/.vim/plugged')
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'jeffKreeftmeijer/vim-numbertoggle'
+  Plug 'tpope/vim-fugitive'
+    if PlugLoaded('vim-fugitive')
+      fun! GitInfo()
+        let git = fugitive#head()
+        if git != ''
+          return ' '.git.''
+        else
+          return ''
+        endif
+      endfunction
+    endif
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-commentary'
+  " Plug 'itchyny/lightline.vim'
   Plug 'gcmt/taboo.vim'
     let g:taboo_tabline=1
     let g:taboo_modified_tab_flag="[+]"
-    let g:taboo_tab_format="▏%N:%P%m▕"
-    let g:taboo_renamed_tab_format="▏%N:%l%m▕"
-  Plug 'tpope/vim-fugitive'
+    let g:taboo_tab_format="▏%N:%P%m %{GitInfo()}▕"
+    let g:taboo_renamed_tab_format="▏%N:%l%m %{GitInfo()}▕"
   Plug 'sheerun/vim-polyglot'
   Plug 'dense-analysis/ale' "{{{
     let g:ale_fix_on_save=1
@@ -127,9 +140,8 @@ call plug#begin('~/.vim/plugged')
     let g:NERDTreeStatusline="| menu:m | help:? |"
     Plug 'Xuyuanp/nerdtree-git-plugin'
   "}}}
+  Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'sickill/vim-pasta'
-  Plug 'tpope/vim-surround'
-  Plug 'tpope/vim-commentary'
   Plug 'bronson/vim-trailing-whitespace'
   " Easymotion - <leader><plug><movement>
   Plug 'easymotion/vim-easymotion'
@@ -167,6 +179,12 @@ call plug#begin('~/.vim/plugged')
     autocmd BufEnter * call <SID>AutoProjectRootCD()
   "}}}
   Plug 'chrisbra/Colorizer'
+  " Plug 'ryanoasis/vim-devicons'
+  "   let g:webdevicons_enable_nerdtree = 1
+  "   let g:WebDevIconsUnicodeDecorateFileNodes = 0
+  "   let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+  "   let g:webdevicons_conceal_nerdtree_brackets = 1
+  "   let g:WebDevIconsUnicodeDoubleWidth = 1
   Plug '~/Desktop/jummidark.vim'
   " Conditionally load these on markup files
   let markupFiles = ['html', 'javascript', 'javascriptreact', 'xml', 'css', 'scss']
@@ -198,22 +216,9 @@ call plug#begin('~/.vim/plugged')
   " }}}
 call plug#end()
 
-" Statusline Configuration {{{
+" Statusline (Builtin) Configuration {{{
 " Left alignment for the below customizations
 set statusline=
-  " set statusline+=\ 
-  " " Git status information if using vim-fugitive
-  " if PlugLoaded('vim-fugitive')
-  "   fun! GitInfo()
-  "     let git = fugitive#head()
-  "     if git != ''
-  "       return '( '.git.')'
-  "     else
-  "       return ''
-  "     endif
-  "   endfunction
-  "   set statusline+=%{GitInfo()}
-  " endif
   " Current buffer's file path relative to the git project root
   set statusline+=\ %f
   " Read Only marker
