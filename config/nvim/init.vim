@@ -179,12 +179,6 @@ call plug#begin('~/.vim/plugged')
     autocmd BufEnter * call <SID>AutoProjectRootCD()
   "}}}
   Plug 'chrisbra/Colorizer'
-  " Plug 'ryanoasis/vim-devicons'
-  "   let g:webdevicons_enable_nerdtree = 1
-  "   let g:WebDevIconsUnicodeDecorateFileNodes = 0
-  "   let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-  "   let g:webdevicons_conceal_nerdtree_brackets = 1
-  "   let g:WebDevIconsUnicodeDoubleWidth = 1
   Plug '~/Desktop/jummidark.vim'
   " Conditionally load these on markup files
   let markupFiles = ['html', 'javascript', 'javascriptreact', 'xml', 'css', 'scss']
