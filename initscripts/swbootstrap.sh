@@ -52,7 +52,6 @@ FORMULAE=(
   "bash-completion"
   "tmux"
   "neovim"
-  "ranger"
   "w3m"
   "links"
   "lynx"

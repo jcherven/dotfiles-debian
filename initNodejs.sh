@@ -4,17 +4,6 @@
 nvm install --lts
 nvm use --lts
 
-# # Install yarn and use yarn exclusively
-# # Why is all this necessary? See https://yoember.com/nodejs/the-best-way-to-install-node-js-with-yarn/
-# npm install -g yarn
-# source "$HOME/.bashrc"
-# yarn global add yarn
-# npm rm -g yarn
-# # Install NPM via yarn and remove the original NPM installed version
-# yarn global add npm
-# npm rm -g npm
-# source "$HOME/.bashrc"
-
 # Install global packages with NPM
 NPMPKGS=(
   "yarn"

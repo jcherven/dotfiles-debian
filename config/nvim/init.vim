@@ -240,10 +240,12 @@ function! ModeCurrent() abort
     let l:current_status_mode = l:modelist
     return l:current_status_mode
 endfunction
+" Highlight group for the Mode Indicator
+" hi Mode ctermbg=NONE ctermfg=NONE cterm=NONE guibg=NONE guifg=NONE gui=NONE
 
 " Left alignment for the below customizations
 set statusline=
-  " Mode
+  " Mode Indicator with coloring and reset
   set statusline+=%{ModeCurrent()}
   " Current buffer's file path relative to the git project root
   set statusline+=\ %f
