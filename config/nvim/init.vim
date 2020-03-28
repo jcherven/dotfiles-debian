@@ -212,7 +212,7 @@ call plug#end()
 
 " Statusline (Builtin) Configuration {{{
 let g:currentmode={
-  \'n' : '正常',
+  \'n' : 'ノーマル',
   \'no' : 'N·Operator Pending',
   \'v' : 'ビジュアル',
   \'V' : '行単位',
@@ -224,8 +224,8 @@ let g:currentmode={
   \'R' : '置換',
   \'Rv' : 'V·Replace',
   \'c' : 'コマンド',
-  \'cv' : 'Vim Ex',
-  \'ce' : 'Ex',
+  \'cv' : 'Vim Exコマンド',
+  \'ce' : 'Exコマンド',
   \'r' : 'プロンプト',
   \'rm' : 'More',
   \'r?' : '確認',
