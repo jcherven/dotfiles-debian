@@ -12,13 +12,12 @@ DIRECTORIES=(
   "$HOME/.bash_completion/alacritty"
   )
 
-# Create directories defined in DIRECTORIES array. Requires /bin/bash for C-style looping to access array indexes {{{
+# Create directories defined in DIRECTORIES array. Requires /bin/bash for C-style looping to access array indexes
 for ((j=0; j<${#DIRECTORIES[@]}; ++j)); do
   if [ ! -d "${DIRECTORIES[$j]}" ]; then
     mkdir -p "${DIRECTORIES[$j]}"
   fi
 done
-#}}}
 
 # Symlinked files
 # Listing of symlinks for files that are located in ~/
@@ -30,7 +29,6 @@ FILESLOCAL=( # items correspond  to FILESLINKED by index order
   "$HOME/.bashrc"
   "$HOME/.bash_completion/alacritty/alacritty.yml"
   "$HOME/.inputrc"
-  "$HOME/.zshrc"
   # tmux
   "$HOME/.tmux.conf"
   # git global configs
@@ -48,7 +46,6 @@ FILESLINKED=(
   "$HOME/dotfiles/bashrc"
   "$HOME/dotfiles/bash_completion/alacritty/alacritty.yml"
   "$HOME/dotfiles/inputrc"
-  "$HOME/dotfiles/zshrc"
   # tmux
   "$HOME/dotfiles/tmux.conf"
   # git global configs
