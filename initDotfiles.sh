@@ -7,7 +7,6 @@ set -e
 DIRECTORIES=(
   # directories needed in ~/.config
   "$HOME/.config/nvim"
-  "$HOME/.config/ranger"
   "$HOME/.config/git"
   "$HOME/.config/alacritty"
   "$HOME/.bash_completion/alacritty"
@@ -38,8 +37,6 @@ FILESLOCAL=( # items correspond  to FILESLINKED by index order
   "$HOME/.config/git/config"
   "$HOME/.config/git/ignore"
   # other applications
-  "$HOME/.config/ranger/rc.conf"
-  "$HOME/.config/ranger/rifle.conf"
   "$HOME/.config/alacritty/alacritty.yml"
 )
 
@@ -58,8 +55,6 @@ FILESLINKED=(
   "$HOME/dotfiles/config/git/config"
   "$HOME/dotfiles/config/git/ignore"
   # other applications
-  "$HOME/dotfiles/config/ranger/rc.conf"
-  "$HOME/dotfiles/config/ranger/rifle.conf"
   "$HOME/dotfiles/config/alacritty/alacritty.yml"
 )
 
