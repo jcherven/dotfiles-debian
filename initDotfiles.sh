@@ -56,16 +56,19 @@ FILESLINKED=(
 )
 
 # Call software bootstrap install/config scripts {{{
-# Install the OS's basic environment bootstrap apps (currently supports MacOS)
-source "$HOME/dotfiles/initscripts/swbootstrap.sh"
-
-# Install vim-plug and bootstrap the vim/neovim environment
-source "$HOME/dotfiles/initscripts/viminit.sh"
-
-# # Set preferred MacOS settings
- if [[ "$OSTYPE" == "darwin"* ]]; then
-   source "$HOME/dotfiles/initscripts/macosinit.sh"
- fi
+# MacOS 13
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # Install the OS's basic environment bootstrap apps (currently supports MacOS)
+  source "$HOME/dotfiles/initscripts/swbootstrap.sh"
+  # Install vim-plug and bootstrap the vim/neovim environment
+  source "$HOME/dotfiles/initscripts/viminit.sh"
+  # Set macos 13 system settings
+  source "$HOME/dotfiles/initscripts/macosinit.sh"
+fi
+# Debian
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  source "$HOME/dotfiles/initscripts/debianinit.sh"
+fi
 #}}}
 
 # Set the ~/ dot file symlinks defined in FILESLINKED {{{
