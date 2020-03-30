@@ -37,9 +37,9 @@ if [ -f  "$GITPROMPT" ]; then
   export GIT_PS1_SHOWDIRTYSTATE=1
   # NORMALBLACK="\[\033[0;30m\]"
   # NORMALRED="\[\033[0;31m\]"
-  NORMALGREEN="\[\033[0;32m\]"
+  # NORMALGREEN="\[\033[0;32m\]"
   # NORMALYELLOW="\[\033[0;33m\]"
-  # NORMALBLUE="\[\033[0;34m\]"
+  NORMALBLUE="\[\033[0;34m\]"
   # NORMALMAGENTA="\[\033[0;35m\]"
   # NORMALCYAN="\[\033[0;36m\]"
   # NORMALWHITE="\[\033[0;37m\]"
@@ -54,7 +54,7 @@ if [ -f  "$GITPROMPT" ]; then
   # BRIGHTWHITE="\[\033[1;37m\]"
 
   RESETCOLOR="\[\033[0m\]"
-  export PS1="$BRIGHTBLUE\u $NORMALGREEN\W$BRIGHTRED\$(__git_ps1)$RESETCOLOR \$ "
+  export PS1="$NORMALBLUE\u $BRIGHTBLUE\W$BRIGHTRED\$(__git_ps1)$RESETCOLOR \$ "
 fi #}}}
 
 # end env exports
