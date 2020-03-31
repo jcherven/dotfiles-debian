@@ -179,8 +179,8 @@ call plug#begin('~/.vim/plugged')
     autocmd BufEnter * call <SID>AutoProjectRootCD()
   "}}}
   Plug 'chrisbra/Colorizer'
-  " Plug 'jcherven/jummidark.vim'
-  Plug '~/Desktop/jummidark.vim'
+  Plug 'jcherven/jummidark.vim'
+  " Plug '~/Desktop/jummidark.vim'
   " Conditionally load these on markup files
   let markupFiles = ['html', 'javascript', 'javascriptreact', 'xml', 'css', 'scss']
   Plug 'hail2u/vim-css3-syntax', { 'for': markupFiles }
@@ -283,6 +283,4 @@ if has('gui')
 endif
 " }}}
 
-if PlugLoaded("jcherven/jummidark.vim")
-  colorscheme jummidark
-endif
+silent! colorscheme jummidark
