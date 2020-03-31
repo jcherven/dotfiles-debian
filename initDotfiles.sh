@@ -79,8 +79,6 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   source "$HOME/dotfiles/initscripts/debianinit.sh"
 fi
 
-# Install vim-plug and bootstrap the vim/neovim environment
-source "$HOME/dotfiles/initscripts/viminit.sh"
 #}}}
 
 echo "initDotfiles.sh has completed."
