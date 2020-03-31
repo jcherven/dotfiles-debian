@@ -179,6 +179,7 @@ call plug#begin('~/.vim/plugged')
     autocmd BufEnter * call <SID>AutoProjectRootCD()
   "}}}
   Plug 'chrisbra/Colorizer'
+  " Plug 'jcherven/jummidark.vim'
   Plug '~/Desktop/jummidark.vim'
   " Conditionally load these on markup files
   let markupFiles = ['html', 'javascript', 'javascriptreact', 'xml', 'css', 'scss']
@@ -257,7 +258,7 @@ endfunction
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 " }}}
 
 " GUI vim (macvim, gvim, etc) Settings {{{
@@ -282,4 +283,6 @@ if has('gui')
 endif
 " }}}
 
-colorscheme jummidark
+if PlugLoaded("jcherven/jummidark.vim")
+  colorscheme jummidark
+endif

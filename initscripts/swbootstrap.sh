@@ -143,33 +143,11 @@ function homebrew_bootstrap {
   echo "Environment bootstrap via Homebrew has finished."
 }
 
-function install_nvm {
-  # Install Nodejs via NVM
-  # https://yoember.com/nodejs/the-best-way-to-install-node-js-with-yarn/
-  if [ ! -x "$(command -v nvm)" ]; then
-    echo "Installing NVM via Git"
-    export NVM_DIR="$HOME/.nvm" && (
-      git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR"
-      pushd "$NVM_DIR"
-      # Suppress Git's detached HEAD message
-      git config advice.detachedHead false
-      git checkout "$(git describe --abbrev=0 --tags --match "v[0-9]*" "$(git rev-list --tags --max-count=1)")"
-    ) && \. "$NVM_DIR/nvm.sh"
-  fi
-}
-
 # Install Homebrew and basic apps via function
 if [[ "$OSTYPE" == "darwin"* ]]; then
   if [ ! -x "$(command -v brew)" ]; then
     homebrew_bootstrap
   fi
-fi
-
-# Install nvm via function
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  install_nvm
-  echo "The NVM installation requires a restart of the terminal."
-  echo "After restarting the terminal, run the ~/dotfiles/initNodejs.sh script."
 fi
 
 # ex: set foldmethod=marker:
