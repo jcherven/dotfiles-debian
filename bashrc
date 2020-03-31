@@ -99,7 +99,7 @@ fi #}}}
 # For locally defined aliases that don't need to be included in this config
 # ALIASFILE= "$HOME/.bash_aliases"
 if [ -f ~/.bash_aliases ]; then
-   . ~/.bash_aliases
+   source ~/.bash_aliases
  else
    echo "# Local aliases that dont belong in the dotfiles can be defined here" > ~/.bash_aliases
    echo "A local aliases file has been created at ~/.bash_aliases."
@@ -130,7 +130,9 @@ fi
 
 # Required for NVM
 # https://github.com/nvm-sh/nvm#manual-install
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+if [ ! -x "$(command -v nvm)" ]; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+fi
 
 # ex: set foldmethod=marker:

@@ -55,13 +55,22 @@ FILESLINKED=(
   "$HOME/dotfiles/config/alacritty/alacritty.yml"
 )
 
+# Set the ~/ dot file symlinks defined in FILESLINKED {{{
+# requires a c-style loop to access array index numbers
+for ((i=0; i<${#FILESLOCAL[@]}; ++i)); do
+  if [ -e "${FILESLOCAL[$i]}" ];
+  then
+    mv "${FILESLOCAL[$i]}" "${FILESLOCAL[$i]}.old.$(date %c)"
+  fi
+  ln -s "${FILESLINKED[$i]}" "${FILESLOCAL[$i]}"
+done
+# }}}
+
 # Call software bootstrap install/config scripts {{{
 # MacOS 13
 if [[ "$OSTYPE" == "darwin"* ]]; then
   # Install the OS's basic environment bootstrap apps (currently supports MacOS)
   source "$HOME/dotfiles/initscripts/swbootstrap.sh"
-  # Install vim-plug and bootstrap the vim/neovim environment
-  source "$HOME/dotfiles/initscripts/viminit.sh"
   # Set macos 13 system settings
   source "$HOME/dotfiles/initscripts/macosinit.sh"
 fi
@@ -69,18 +78,10 @@ fi
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   source "$HOME/dotfiles/initscripts/debianinit.sh"
 fi
-#}}}
 
-# Set the ~/ dot file symlinks defined in FILESLINKED {{{
-# requires a c-style loop to access array index numbers
-for ((i=0; i<${#FILESLOCAL[@]}; ++i)); do
-  if [ -e "${FILESLOCAL[$i]}" ];
-  then
-    mv "${FILESLOCAL[$i]}" "${FILESLOCAL[$i]}.old"
-  fi
-  ln -s "${FILESLINKED[$i]}" "${FILESLOCAL[$i]}"
-done
-# }}}
+# Install vim-plug and bootstrap the vim/neovim environment
+source "$HOME/dotfiles/initscripts/viminit.sh"
+#}}}
 
 echo "initDotfiles.sh has completed."
 

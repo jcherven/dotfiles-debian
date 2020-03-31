@@ -15,5 +15,3 @@ sudo apt install -y \
   bash-completion \
   curl \
   ;
-
-
