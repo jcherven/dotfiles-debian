@@ -37,6 +37,8 @@ function set_macos_settings {
   defaults write NSGlobalDomain KeyRepeat -int 2
   # Normal default is 68; Normal minimum is 15 (225ms)
   defaults write NSGlobalDomain InitialKeyRepeat -int 15
+  # Disable the Appple Press And Hold for alternate chars on long presses (interferes with some apps)
+  defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
   # Set language and text formats
   defaults write NSGlobalDomain AppleLanguages -array "en" "ja" "ko"
