@@ -190,7 +190,7 @@ call plug#begin('~/.vim/plugged')
       let g:user_emmet_leader_key=','
     endif
   " Code completion. See github.com/neoclide/coc.nvim/wiki/ for usage help {{{
-  Plug 'neoclide/coc.nvim'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
