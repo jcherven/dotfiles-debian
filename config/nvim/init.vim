@@ -91,7 +91,6 @@ call plug#begin('~/.vim/plugged')
     let g:ale_linters_explicit=1
     let g:ale_javascript_prettier_options='--single-quote'
     let g:ale_linters={
-          \ 'vim': ['prettier'],
           \ 'javascript': ['prettier'],
           \ 'javascriptreact': ['prettier'],
           \ 'css': ['prettier'],
@@ -101,7 +100,6 @@ call plug#begin('~/.vim/plugged')
           \ 'markdown': ['prettier']
     \}
     let g:ale_fixers={
-	        \ 'vim': ['prettier'],
           \ 'javascript': ['prettier'],
           \ 'javascriptreact': ['prettier'],
           \ 'css': ['prettier'],
