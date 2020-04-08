@@ -6,4 +6,4 @@ xmodmap ~/.Xmodmap &
 #exec fvwm
 #exec spectrwm
 #exec i3
-exec wmaker
+#exec wmaker
