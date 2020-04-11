@@ -26,12 +26,15 @@ FILESLOCAL=( # items correspond  to FILESLINKED by index order
   "$HOME/.bash_profile"
   "$HOME/.bashrc"
   "$HOME/.inputrc"
+  "$HOME/.profile"
   # tmux
   "$HOME/.tmux.conf"
   # git global configs
   "$HOME/.config/git/config"
   "$HOME/.config/git/ignore"
   # other applications
+  "$HOME/.lynxrc"
+
 )
 
 FILESLINKED=(
@@ -41,12 +44,14 @@ FILESLINKED=(
   "$HOME/dotfiles/bash_profile"
   "$HOME/dotfiles/bashrc"
   "$HOME/dotfiles/inputrc"
+  "$HOME/dotfiles/profile"
   # tmux
   "$HOME/dotfiles/tmux.conf"
   # git global configs
   "$HOME/dotfiles/config/git/config"
   "$HOME/dotfiles/config/git/ignore"
   # other applications
+  "$HOME/dotfiles/lynxrc"
 )
 
 # Set the ~/ dot file symlinks defined in FILESLINKED {{{
