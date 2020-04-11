@@ -39,19 +39,19 @@ FILESLOCAL=( # items correspond  to FILESLINKED by index order
 
 FILESLINKED=(
   # Xorg configs
-  "$HOME/dotfiles/Xresources"
+  "$HOME/dotfiles-debian/Xresources"
   # bash and other shell configs
-  "$HOME/dotfiles/bash_profile"
-  "$HOME/dotfiles/bashrc"
-  "$HOME/dotfiles/inputrc"
-  "$HOME/dotfiles/profile"
+  "$HOME/dotfiles-debian/bash_profile"
+  "$HOME/dotfiles-debian/bashrc"
+  "$HOME/dotfiles-debian/inputrc"
+  "$HOME/dotfiles-debian/profile"
   # tmux
-  "$HOME/dotfiles/tmux.conf"
+  "$HOME/dotfiles-debian/tmux.conf"
   # git global configs
-  "$HOME/dotfiles/config/git/config"
-  "$HOME/dotfiles/config/git/ignore"
+  "$HOME/dotfiles-debian/config/git/config"
+  "$HOME/dotfiles-debian/config/git/ignore"
   # other applications
-  "$HOME/dotfiles/lynxrc"
+  "$HOME/dotfiles-debian/lynxrc"
 )
 
 # Set the ~/ dot file symlinks defined in FILESLINKED {{{
