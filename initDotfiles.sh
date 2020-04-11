@@ -25,7 +25,6 @@ FILESLOCAL=( # items correspond  to FILESLINKED by index order
   # bash and other shell configs
   "$HOME/.bash_profile"
   "$HOME/.bashrc"
-  "$HOME/.inputrc"
   "$HOME/.profile"
   # tmux
   "$HOME/.tmux.conf"
@@ -43,7 +42,6 @@ FILESLINKED=(
   # bash and other shell configs
   "$HOME/dotfiles-debian/bash_profile"
   "$HOME/dotfiles-debian/bashrc"
-  "$HOME/dotfiles-debian/inputrc"
   "$HOME/dotfiles-debian/profile"
   # tmux
   "$HOME/dotfiles-debian/tmux.conf"
