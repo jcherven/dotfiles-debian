@@ -1,18 +1,40 @@
 # ~/dotfiles-mac/bashrc
 
 # Environment variable exports
+# Configures the qt5 configuration tool in debian
+export QT_QPA_PLATFORMTHEME="qt5ct"
 # PATH exports for tab completion
-# MacOS-specific PATH exports
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  # Include Homebrew installed packages
-    export PATH="/usr/local/bin:$PATH"
-    export PATH="/usr/local/sbin:$PATH"
-    # Tab completion via Homebrew package
-    [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+export PATH="$PATH:/usr/sbin"
 
-  # GNU coreutils, if you decide to use them instead of the built in BSD utils
-  export PATH="$(brew --prefix coreutils)/libexev/gnubin:$PATH"
-fi
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
 
 # Improved less functionality
 # https://www.topbug.net/blog/2016/09/27/make-gnu-less-more-powerful/
@@ -60,25 +82,6 @@ fi #}}}
 # end env exports
 
 # Aliases
-# MacOS Only: Use the GNU utils installed in the homebrew bootstrap script instead of the BSD stock utils {{{
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  if [ -x "$(command -v gfind)" ]; then
-    alias find='gfind'
-  fi
-  if [ -x "$(command -v ggrep)" ]; then
-    alias grep='ggrep'
-  fi
-  if [ -x "$(command -v gtar)" ]; then
-    alias tar='gtar'
-  fi
-  # if [ -x "$(command -v gwhich)" ]; then
-  #   alias which='gwhich'
-  # fi
-  if [ -x "$(command -v gdircolors)" ]; then
-    alias dircolors='gdircolors'
-  fi
-fi #}}}
-
 # Improved ls functionality {{{
 # https://www.topbug.net/blog/2016/11/28/a-better-ls-command/
 eval "$(dircolors)"
@@ -128,6 +131,9 @@ if [ -f "$GITCOMPLETION" ]; then
   source "$GITCOMPLETION"
 fi
 
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
 # Required for NVM
 # https://github.com/nvm-sh/nvm#manual-install
 if [ ! -x "$(command -v nvm)" ]; then
@@ -136,3 +142,4 @@ if [ ! -x "$(command -v nvm)" ]; then
 fi
 
 # ex: set foldmethod=marker:
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

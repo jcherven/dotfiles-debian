@@ -190,20 +190,20 @@ call plug#begin('~/.vim/plugged')
       let g:user_emmet_leader_key=','
     endif
   " Code completion. See github.com/neoclide/coc.nvim/wiki/ for usage help {{{
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    let g:coc_global_extensions=[
-          \'coc-json',
-          \'coc-tsserver',
-          \'coc-css',
-          \'coc-html',
-          \'coc-emmet',
-          \'coc-python',
-          \'coc-highlight',
-          \'coc-yaml',
-          \'coc-markdownlint',
-          \'coc-powershell',
-          \'coc-vimlsp'
-          \]
+"  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"    let g:coc_global_extensions=[
+"          \'coc-json',
+"          \'coc-tsserver',
+"          \'coc-css',
+"          \'coc-html',
+"          \'coc-emmet',
+"          \'coc-python',
+"          \'coc-highlight',
+"          \'coc-yaml',
+"          \'coc-markdownlint',
+"          \'coc-powershell',
+"          \'coc-vimlsp'
+"          \]
   " Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
   " Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
   " Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
@@ -213,11 +213,11 @@ call plug#begin('~/.vim/plugged')
   " Plug 'neoclide/coc-emmet', {'do': 'yarn install --frozen-lockfile'}
   " Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
   " Plug 'fannheyward/coc-markdownlint', {'do': 'yarn install --frozen-lockfile'}
-    let g:markdown_fenced_languages = [
-          \ 'vim',
-          \ 'help'
-          \]
-  Plug 'weirongxu/coc-explorer', {'do': 'yarn install --frozen-lockfile'}
+"    let g:markdown_fenced_languages = [
+"          \ 'vim',
+"          \ 'help'
+"          \]
+"  Plug 'weirongxu/coc-explorer', {'do': 'yarn install --frozen-lockfile'}
   " Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
   " }}}
 call plug#end()
@@ -232,7 +232,7 @@ set statusline=
   " Modified marker
   set statusline+=%{&modified?'[+]':''}\ 
   " CoC statusline integration
-  set statusline+=%{coc#status()}\ 
+"  set statusline+=%{coc#status()}\ 
 " Right alignment for the below customizations
 set statusline+=%=
   " Current filetype
@@ -254,22 +254,22 @@ set updatetime=300
 set cmdheight=2
 set shortmess+=c
 set signcolumn=no
-highlight CocCodeLens ctermfg=8 guifg=#4e4e4e
+"highlight CocCodeLens ctermfg=8 guifg=#4e4e4e
 " Adds a command :Prettier
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+"command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-\ pumvisible() ? "\<C-n>" :
-\ <SID>check_back_space() ? "\<TAB>" :
-\ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+"inoremap <silent><expr> <TAB>
+"\ pumvisible() ? "\<C-n>" :
+"\ <SID>check_back_space() ? "\<TAB>" :
+"\ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"function! s:check_back_space() abort
+"  let col = col('.') - 1
+"  return !col || getline('.')[col - 1]  =~# '\s'
+"endfunction
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+"inoremap <silent><expr> <c-space> coc#refresh()
 " Highlight symbol under cursor on CursorHold
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 " }}}
