@@ -27,15 +27,6 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
 # Improved less functionality
 # https://www.topbug.net/blog/2016/09/27/make-gnu-less-more-powerful/
 export LESS='--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --no-init --window=-8'
@@ -53,7 +44,7 @@ fi
 
 # Prompt configuration {{{
 # Git prompt script needs to be manually updated every so often from https://github.com/git/git/tree/contrib/completion
-GITPROMPT="$HOME/dotfiles/bash_completion/git-prompt.sh"
+GITPROMPT="$HOME/dotfiles-debian/bash_completion/git-prompt.sh"
 if [ -f  "$GITPROMPT" ]; then
   source "$GITPROMPT"
   export GIT_PS1_SHOWDIRTYSTATE=1
@@ -126,7 +117,7 @@ man() {
 } #}}}
 
 # Git completion for branch names, subcommands, and more
-GITCOMPLETION="$HOME/dotfiles/bash_completion/git-completion.bash"
+GITCOMPLETION="$HOME/dotfiles-debian/bash_completion/git-completion.bash"
 if [ -f "$GITCOMPLETION" ]; then
   source "$GITCOMPLETION"
 fi

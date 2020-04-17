@@ -1,4 +1,4 @@
-! All typography
+! Bitmap typography
 *.font: 7x14
 
 ! Jummidark color scheme
@@ -31,36 +31,6 @@
 *.color7:       rgb:8a/8a/8a
 *.color15:      rgb:e4/e4/e4
 
-! Jummidark color scheme
-! special
-!*.foreground:   #e1e1e1
-!*.background:   #262626
-!*.cursorColor:  #b1951d
-!! black
-!*.color0:       #121212
-!*.color8:       #4e4e4e
-!! red
-!*.color1:       #a14e5d
-!*.color9:       #cf6679
-!! green
-!*.color2:       #03dac6
-!*.color10:      #03dac6
-!! yellow
-!*.color3:       #1de9b6
-!*.color11:      #1de9b6
-!! blue
-!*.color4:       #6200ee
-!*.color12:      #bb86fc
-!! magenta
-!*.color5:       #bb86fc
-!*.color13:      #bb86fc
-!! cyan
-!*.color6:       #03dac6
-!*.color14:      #03dac6
-!! white
-!*.color7:       #8a8a8a
-!*.color15:      #e4e4e4
-
 !! X Resources used by URXvt
 ! Appearance
 URxvt.scrollBar: false
@@ -73,36 +43,3 @@ URxvt.fadeColor: #262626
 URxvt.letterSpace: 0
 URxvt.intensityStyles: true
 
-!! X resources used by wdm sessions
-xlogin*login.translations: #override\
-  Ctrl<Key>R: abort-display()\n\
-  <Key>Delete: delete-character()\n\
-  <Key>F1: set-session-argument(failsafe) finish-field()\n\
-  Ctrl<Key>Return: set-session-argument(failsafe) finish-field()\n\
-  <Key>Return: set-session-argument() finish-field()
-xlogin*borderWidth: 3
-xlogin*greeting: Debian GNU/Linux (CLIENTHOST)
-xlogin*namePrompt: login:
-xlogin*fail: Login incorrect
-#ifdef COLOR
-xlogin*greetColor: CadetBlue
-xlogin*failColor: red
-!*Foreground: black
-!*Background: #fffff0
-#else
-xlogin*Foreground: black
-xlogin*Background: white
-#endif
-
-XConsole.text.geometry:	480x130
-XConsole.verbose:	true
-XConsole*iconic:	true
-XConsole*font:		fixed
-
-Chooser*geometry:		700x500+300+200
-Chooser*allowShellResize:	false
-Chooser*viewport.forceBars:	true
-Chooser*label.font:		*-new century schoolbook-bold-i-normal-*-240-*
-Chooser*label.label:		XDMCP Host Menu  from CLIENTHOST
-Chooser*list.font:		-*-*-medium-r-normal-*-*-230-*-*-c-*-iso8859-1
-Chooser*Command.font:		*-new century schoolbook-bold-r-normal-*-180-*

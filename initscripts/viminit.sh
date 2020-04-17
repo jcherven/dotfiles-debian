@@ -26,7 +26,7 @@ then
   echo "Fetching vim-plug for Vim"
   curl -fLo "$VIMPLUG" --create-dirs "$PLUGURL"
   if [[ ! -e "$MYVIMRC" ]]; then
-    ln -s "$HOME/dotfiles/config-debian/nvim/init.vim" "$MYVIMRC"
+    ln -s "$HOME/dotfiles/config-debian/config/nvim/init.vim" "$MYVIMRC"
   fi
   echo "Fetching and installing Vim plugins"
   vim -c 'PlugInstall | qa' && echo "vim-plug for Vim configured."
